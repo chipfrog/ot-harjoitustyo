@@ -1,10 +1,8 @@
-# Otsikko
+# Ohjelmistotekniikka, harjoitustyö
+## Tehtävät
+### Viikko 1
 
-*Vaka vanha Väinämöinen* elelevi aikojansa
-noilla Väinölän ahoilla,**Kalevalan** kankahilla.
-Laulelevi virsiänsä, laulelevi, taitelevi.
+[gitlog.txt](https://github.com/chipfrog/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+[komentorivi.txt](https://github.com/chipfrog/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
-**Lauloi** päivät pääksytysten, yhytysten yöt saneli
-muinaisia muisteloita, noita syntyjä syviä,
-joit' ei laula kaikki lapset, ymmärrä yhet urohot
-tällä inhalla iällä, katovalla kannikalla.
+
