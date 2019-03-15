@@ -1,7 +1,7 @@
 <h1>Otsikko<h1>
 
 *Vaka vanha Väinämöinen* elelevi aikojansa
-noilla Väinölän ahoilla,** Kalevalan** kankahilla.
+noilla Väinölän ahoilla,**Kalevalan** kankahilla.
 Laulelevi virsiänsä, laulelevi, taitelevi.
 
 **Lauloi** päivät pääksytysten, yhytysten yöt saneli
