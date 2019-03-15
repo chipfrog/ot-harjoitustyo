@@ -19,3 +19,5 @@ kurssit
                             └── mycompany
                                 └── unicafe
                                     └── MaksukorttiTest.java
+                                    
+                                    (muutostesti)
