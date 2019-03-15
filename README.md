@@ -6,4 +6,4 @@
 
 [komentorivi.txt](https://github.com/chipfrog/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
-
+*Pieni muutos...*
