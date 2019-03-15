@@ -1,0 +1,105 @@
+commit 1f8b9f13625d8e3d8d4ba1d56b41df00e6065498
+Author: Juuso Järvenpää <juuso.kp.jarvenpaa@outlook.com>
+Date:   Fri Mar 15 16:02:28 2019 +0200
+
+    muutoksia
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit fd7e3e312c9c15571733fc1c2bbe9808b16318fc
+Author: Juuso Järvenpää <juuso.kp.jarvenpaa@outlook.com>
+Date:   Fri Mar 15 15:58:11 2019 +0200
+
+    Luotiin 3 uutta tiedostoa
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit c8980e0c2a6d9885e37de23960ad7fe6278c3a96
+Author: Juuso Järvenpää <juuso.kp.jarvenpaa@outlook.com>
+Date:   Fri Mar 15 15:51:39 2019 +0200
+
+    lisää muutoksia
+
+ eka.txt    | 3 +++
+ kolmas.txt | 2 +-
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+
+commit 3a285ca3a4f43cd60ba7aec56609ffcad5828099
+Author: Juuso Järvenpää <juuso.kp.jarvenpaa@outlook.com>
+Date:   Fri Mar 15 15:49:03 2019 +0200
+
+    muutettu tiedoston nimi
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 0f5925ceabf8b89950620c97bc4dabb48591dc01
+Author: Juuso Järvenpää <juuso.kp.jarvenpaa@outlook.com>
+Date:   Fri Mar 15 15:47:31 2019 +0200
+
+    Poistettu toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit ec98fea228a51cc1ef6c0826c68e03f0937a2d8a
+Author: Juuso Järvenpää <juuso.kp.jarvenpaa@outlook.com>
+Date:   Fri Mar 15 15:45:25 2019 +0200
+
+    Muokattu jälleen tiedosto.txt:n sisältöä.
+
+ tiedosto.txt | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+
+commit 9e96df3156e7fe26ca084ffadae02fdd84eb3dac
+Author: Juuso Järvenpää <juuso.kp.jarvenpaa@outlook.com>
+Date:   Fri Mar 15 15:43:57 2019 +0200
+
+    Muutettu tiedosto.txt:n sisältöä
+
+ tiedosto.txt | 27 ++++++++++++++++++++++++++-
+ 1 file changed, 26 insertions(+), 1 deletion(-)
+
+commit 6b655050e4c12c4d5e6a9998ba9370c3e78f57eb
+Author: Juuso Järvenpää <juuso.kp.jarvenpaa@outlook.com>
+Date:   Fri Mar 15 15:40:39 2019 +0200
+
+    Muokattu tiedostoja ja lisätty uusi kansio.
+
+ kolmas.txt      | 1 +
+ stuff/testi.txt | 0
+ toinen.txt      | 1 +
+ 3 files changed, 2 insertions(+)
+
+commit 55d7caf54907eb3e940498089652ee41bb15213e
+Author: Juuso Järvenpää <juuso.kp.jarvenpaa@outlook.com>
+Date:   Fri Mar 15 15:38:42 2019 +0200
+
+    Lisätty kolmas.txt
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit b5035d3c754b07f5507255782889119ee3dbd996
+Author: Juuso Järvenpää <juuso.kp.jarvenpaa@outlook.com>
+Date:   Fri Mar 15 15:32:57 2019 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 25475226ee4eaec712f1292bd29f958d45c870bd
+Author: Juuso Järvenpää <juuso.kp.jarvenpaa@outlook.com>
+Date:   Fri Mar 15 15:30:23 2019 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
