@@ -17,11 +17,16 @@ public class MaksukorttiTest {
     public void luotuKorttiOlemassa() {
         assertTrue(kortti!=null);      
     }
+    @Test
+    public void palautaOikeaSaldo() {
+        assertTrue(kortti.saldo() == 10);
+    }
     
     @Test
     public void saldoAlussaOikein() {
         assertEquals("saldo: 0.10", kortti.toString());
     }
+    
     @Test
     public void rahanLatausKasvattaaSaldoaOikein() {
         kortti.lataaRahaa(150);
