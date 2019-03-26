@@ -8,9 +8,13 @@ hirviöiden hyökkäyksiä. Jos pelaaja saa ammuttua kaikki hirviöt tai säilyy
 
 Kyseessä on peli, joten käyttäjänä on ainoastaan pelaaja.
 
+## Käyttöliittymäluonnos
+Käyttöliittymä tulee koostumaan ainakin kolmesta ruudusta. Alla esimerkki: 
+<img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/Top-Down-Shooter/dokumentaatio/kuvat/Kayttoliittymaluonnos.PNG">
+
 ## Suunnitellut toiminallisuudet
 
-### Aloitusruutu
+### Ennen pelin alkua
 - voidaan aloittaa uusi peli ja nimetä pelihahmo
 - voidaan tarkastella ns. leaderboardia, josta nähdään parhaimmat pisteet saavuttaneet pelaajat ja pistetulokset 
 
