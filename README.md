@@ -6,3 +6,8 @@
 
 [komentorivi.txt](https://github.com/chipfrog/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
+# Top-Down-Shooter
+## Dokumentaatio
+
+[Vaatimusmäärittely.md](https://github.com/chipfrog/ot-harjoitustyo/blob/master/Top-Down-Shooter/dokumentaatio/vaatimusmaarittely.md)
+
