@@ -11,3 +11,5 @@
 
 [vaatimusmaarittely.md](https://github.com/chipfrog/ot-harjoitustyo/blob/master/Top-Down-Shooter/dokumentaatio/vaatimusmaarittely.md)
 
+[tyoaikakirjanpito.md](https://github.com/chipfrog/ot-harjoitustyo/blob/master/Top-Down-Shooter/dokumentaatio/tyoaikakirjanpito.md)
+
