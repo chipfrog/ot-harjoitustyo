@@ -1,15 +1,18 @@
-# Ohjelmistotekniikka, harjoitustyö
-## Tehtävät
-### Viikko 1
-
-[gitlog.txt](https://github.com/chipfrog/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
-
-[komentorivi.txt](https://github.com/chipfrog/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
-
 # Top-Down-Shooter
+Kyseessä on 2D-peli, jossa tarkoituksena on kerätä pisteitä ampumalla hirviöitä ja välttää syödyksi tuleminen.
+
 ## Dokumentaatio
 
-[vaatimusmaarittely.md](https://github.com/chipfrog/ot-harjoitustyo/blob/master/Top-Down-Shooter/dokumentaatio/vaatimusmaarittely.md)
+[Vaatimusmäärittely](https://github.com/chipfrog/ot-harjoitustyo/blob/master/Top-Down-Shooter/dokumentaatio/vaatimusmaarittely.md)
 
-[tyoaikakirjanpito.md](https://github.com/chipfrog/ot-harjoitustyo/blob/master/Top-Down-Shooter/dokumentaatio/tyoaikakirjanpito.md)
+[Työaikakirjanpito](https://github.com/chipfrog/ot-harjoitustyo/blob/master/Top-Down-Shooter/dokumentaatio/tyoaikakirjanpito.md)
 
+## Komentorivitoiminnot
+Testit voidaan suorittaa komennolla
+```
+mvn test
+```
+Testikattavuusraportti luodaan komennolla
+```
+mvn test jacoco:report
+```
