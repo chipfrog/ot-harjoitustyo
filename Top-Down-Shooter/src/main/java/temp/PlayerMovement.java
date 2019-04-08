@@ -1,7 +1,9 @@
 package temp;
 
 
+
 import javafx.event.EventHandler;
+import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -19,16 +21,19 @@ import javafx.scene.input.KeyEvent;
 public class PlayerMovement {
     boolean goUp, goDown, goLeft, goRight, run;
     Scene scene;
-    ImageView playerIcon;
+    Point2D playerLocation;
+    Player player;
     
-    public PlayerMovement (Scene scene, ImageView playerIcon) {
+    
+    public PlayerMovement (Scene scene, Player player) {
         this.goUp = false;
         this.goDown = false;
         this.goLeft = false;
         this.goRight = false;
         this.run = false;
         this.scene = scene;
-        this.playerIcon = playerIcon;
+        this.player = player;
+        
     }
     public void keyCommands() {
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -67,21 +72,26 @@ public class PlayerMovement {
             distanceX *= 2;
             distanceY *= 2;
         }
-        
         movePlayerBy(distanceX, distanceY);
     }
-    public void movePlayerTo(double x, double y) {
-        double centerX = playerIcon.getBoundsInLocal().getWidth() / 2;
-        double centerY = playerIcon.getBoundsInLocal().getHeight() / 2;
-        if (x - centerX >= 0 && x + centerX <= scene.getWidth() && y - centerY >= 0 && y + centerY <= scene.getHeight()) {
-            playerIcon.relocate(x - centerX, y - centerY);
-        }
-    }
     public void movePlayerBy(double distanceX, double distanceY) {
-        double centerX = playerIcon.getBoundsInLocal().getWidth() / 2;
-        double centerY = playerIcon.getBoundsInLocal().getHeight() / 2;
-        double x = centerX + distanceX + playerIcon.getLayoutX();
-        double y = centerY + distanceY + playerIcon.getLayoutY();
+        double centerX = player.getImage().getBoundsInLocal().getWidth() / 2;
+        double centerY = player.getImage().getBoundsInLocal().getHeight() / 2;
+        double x = centerX + distanceX + player.getImage().getLayoutX();
+        double y = centerY + distanceY + player.getImage().getLayoutY();
         movePlayerTo(x, y);
     }
+    public void movePlayerTo(double x, double y) {
+        double centerX = player.getImage().getBoundsInLocal().getWidth() / 2;
+        double centerY = player.getImage().getBoundsInLocal().getHeight() / 2;
+        if (x - centerX >= 0 && x + centerX <= scene.getWidth() && y - centerY >= 0 && y + centerY <= scene.getHeight()) {
+            player.getImage().relocate(x - centerX, y - centerY);
+        }
+    }
+    public Point2D getPlayerLocation() {
+        this.playerLocation = new Point2D(player.getImage().getLayoutX() + player.getImage().getBoundsInLocal().getWidth()/2, 
+                player.getImage().getLayoutY() + player.getImage().getBoundsInLocal().getHeight() /2);
+        return playerLocation;
+    }
+    
 }

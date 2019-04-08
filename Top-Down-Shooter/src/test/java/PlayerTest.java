@@ -14,7 +14,7 @@ import temp.Player;
  *
  * @author jajuuso
  */
-public class PlayerTest {
+public class PlayerTest{
     Player player;
     
     public PlayerTest() {
@@ -23,6 +23,7 @@ public class PlayerTest {
     @Before
     public void setUp() {
         this.player = new Player("John");
+        
     }
     @Test
     public void playerTakesDamage() {
@@ -44,6 +45,8 @@ public class PlayerTest {
     public void nameIsRight() {
         assertTrue(player.getName().equals("John"));
     }
+
+    
     
     
 }

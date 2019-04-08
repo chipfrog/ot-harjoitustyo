@@ -5,6 +5,8 @@
  */
 package temp;
 
+import javafx.scene.image.ImageView;
+
 /**
  *
  * @author jajuuso
@@ -12,28 +14,60 @@ package temp;
 public class Player {
     private String name;
     private int hp;
+    private int maxhp;
     private int stamina;
-    boolean alive;
+    private boolean alive;
+    private boolean canBeHit;
+    private ImageView imageview;
+    private double startTime;
+    private double endTime;
     
     public Player(String name) {
         this.name = name;
+        this.maxhp = 50;
         this.hp = 50;
         this.stamina = 50;
+        this.imageview = new ImageView("player.png");
+        this.canBeHit = true;
+        this.alive = true;
     }
     public int getHp() {
         return this.hp;
     }
+    public int getMaxHp() {
+        return this.maxhp;
+    }
     public void takeDamage() {
+        Timer();
         if (hp - 10 > 0) {
             this.hp -= 10;
+            canBeHit = false;
         } else {
             this.hp = 0;
+            alive = false;
         }
-        
     }
     public String getName() {
         return this.name;
     }
+    public ImageView getImage() {
+        return this.imageview;
+    }
+    public void Timer() {
+        this.startTime = System.currentTimeMillis();
+        this.endTime = startTime + 2000;
+    }
+    
+    public boolean invincibility() {
+        if (System.currentTimeMillis() >= endTime) {
+            canBeHit = true;
+        }
+        return canBeHit;
+    }
+    public boolean alive() {
+        return this.alive;
+    }
+    
     
     
     
