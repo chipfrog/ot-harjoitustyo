@@ -5,7 +5,7 @@
  */
 package shooter.logic;
 
-import javafx.scene.image.ImageView;
+
 
 /**
  *
@@ -36,7 +36,7 @@ public class Player {
         return this.maxhp;
     }
     public void takeDamage() {
-        Timer();
+        timer();
         if (hp - 10 > 0) {
             this.hp -= 10;
             canBeHit = false;

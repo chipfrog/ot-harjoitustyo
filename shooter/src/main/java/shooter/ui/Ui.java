@@ -82,7 +82,7 @@ public class Ui extends Application{
         hbox.getChildren().add(healthbar);
         hbox.setAlignment(Pos.TOP_LEFT);
         root.getChildren().addAll(hbox, imageview, gameOver);
-        ArrayList<Enemy> enemies = createEnemies(10);
+        ArrayList<EnemyMovement> enemies = createEnemies(10);
         for (int i = 0; i < enemies.size(); i ++) {
             root.getChildren().add(enemies.get(i).getShape());
         }
@@ -99,7 +99,7 @@ public class Ui extends Application{
             @Override
             public void handle(long now) {
                 movement.movePlayerIcon();
-                for (Enemy e : enemies) {
+                for (EnemyMovement e : enemies) {
                     e.chasePlayer(movement.getPlayerLocation());
                     if (e.playerIsHit(player, imageview)) {
                         healthbar.setText("Hp: " + player.getHp() + "/" + player.getMaxHp());
@@ -144,8 +144,8 @@ public class Ui extends Application{
             }
         });
     }    
-    public ArrayList<Enemy> createEnemies(int number) {
-        ArrayList<Enemy> enemies = new ArrayList<>();
+    public ArrayList<EnemyMovement> createEnemies(int number) {
+        ArrayList<EnemyMovement> enemies = new ArrayList<>();
         
         for (int i = 0; i < number; i ++) {
             Random rx = new Random();
@@ -153,7 +153,7 @@ public class Ui extends Application{
             double x = rx.nextInt(width);
             double y = ry.nextInt(height);
             
-            Enemy e = new Enemy(x, y);
+            EnemyMovement e = new EnemyMovement(x, y);
             enemies.add(e);
             
         }

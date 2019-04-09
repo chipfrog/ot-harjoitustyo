@@ -17,14 +17,13 @@ import shooter.logic.Player;
  *
  * @author jajuuso
  */
-public class Enemy {
-    
+public class EnemyMovement {
     double speed;
     Point2D enemyLocation;
     Point2D direction;
     Rectangle rectangle;
     
-    public Enemy(double x, double y) {
+    public EnemyMovement(double x, double y) {
         this.speed = 0.3;
         this.enemyLocation = new Point2D(x, y);
         this.rectangle = new Rectangle(50, 50);
