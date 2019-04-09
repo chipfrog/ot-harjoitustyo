@@ -3,23 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package logic;
-
-import java.util.ArrayList;
+package shooter.logic;
 
 /**
  *
  * @author jajuuso
  */
-public class HighScore {
-    private int score;
-    private ArrayList list;
-    
-    
-    public HighScore() {
-        
-    }
-    
-    
+public class Bullet {
     
 }

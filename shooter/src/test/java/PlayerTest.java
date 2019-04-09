@@ -9,8 +9,7 @@
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import ui.Enemy;
-import logic.Player;
+import shooter.logic.Player;
 
 /**
  *
@@ -18,7 +17,7 @@ import logic.Player;
  */
 public class PlayerTest{
     Player player;
-    Enemy enemy;
+    
     
     public PlayerTest() {
     }
@@ -26,7 +25,6 @@ public class PlayerTest{
     @Before
     public void setUp() {
         this.player = new Player("John");
-        this.enemy = new Enemy(0, 0);
         
     }
     @Test
@@ -49,6 +47,7 @@ public class PlayerTest{
     public void nameIsRight() {
         assertTrue(player.getName().equals("John"));
     }
+    
     
     
     

@@ -1,4 +1,4 @@
-package ui;
+package shooter.ui;
 
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
