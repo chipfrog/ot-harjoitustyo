@@ -10,7 +10,7 @@ Kyseessä on peli, joten käyttäjänä on ainoastaan pelaaja.
 
 ## Käyttöliittymäluonnos
 Käyttöliittymä tulee koostumaan ainakin kolmesta ruudusta. Alla esimerkki: 
-<img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/Top-Down-Shooter/dokumentaatio/kuvat/Kayttoliittymaluonnos.PNG">
+<img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/Kayttoliittymaluonnos.PNG">
 
 ## Suunnitellut toiminallisuudet
 
