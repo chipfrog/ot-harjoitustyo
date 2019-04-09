@@ -23,7 +23,7 @@ public class PlayerMovement {
     ImageView imageview;
     
     
-    public PlayerMovement (Scene scene, ImageView imageview) {
+    public PlayerMovement(Scene scene, ImageView imageview) {
         this.goUp = false;
         this.goDown = false;
         this.goLeft = false;
@@ -38,10 +38,14 @@ public class PlayerMovement {
             @Override
             public void handle(KeyEvent e) {
                 switch (e.getCode()) {
-                    case W: goUp = true; break;
-                    case S: goDown = true; break;
-                    case A: goLeft = true; break;
-                    case D: goRight = true; break;
+                    case W: goUp = true; 
+                    break;
+                    case S: goDown = true; 
+                    break;
+                    case A: goLeft = true; 
+                    break;
+                    case D: goRight = true; 
+                    break;
                     case SHIFT: run = true; break;
                 }
             }
@@ -50,11 +54,16 @@ public class PlayerMovement {
             @Override
             public void handle(KeyEvent e) {
                 switch (e.getCode()) {
-                    case W: goUp = false; break;
-                    case S: goDown = false; break;
-                    case A: goLeft = false; break;
-                    case D: goRight = false; break;
-                    case SHIFT: run = false; break;
+                    case W: goUp = false; 
+                    break;
+                    case S: goDown = false; 
+                    break;
+                    case A: goLeft = false; 
+                    break;
+                    case D: goRight = false; 
+                    break;
+                    case SHIFT: run = false; 
+                    break;
                 }
             }
             
@@ -87,8 +96,8 @@ public class PlayerMovement {
         }
     }
     public Point2D getPlayerLocation() {
-        this.playerLocation = new Point2D(imageview.getLayoutX() + imageview.getBoundsInLocal().getWidth()/2, 
-                imageview.getLayoutY() + imageview.getBoundsInLocal().getHeight() /2);
+        this.playerLocation = new Point2D(imageview.getLayoutX() + imageview.getBoundsInLocal().getWidth() / 2, 
+                imageview.getLayoutY() + imageview.getBoundsInLocal().getHeight() / 2);
         return playerLocation;
     }
     

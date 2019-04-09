@@ -49,7 +49,7 @@ public class Player {
         return this.name;
     }
 
-    public void Timer() {
+    public void timer() {
         this.startTime = System.currentTimeMillis();
         this.endTime = startTime + 2000;
     }
