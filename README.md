@@ -10,6 +10,8 @@ Kyseessä on 2D-peli, jossa tarkoituksena on kerätä pisteitä ampumalla hirvi�
 [Käyttöohje](https://github.com/chipfrog/ot-harjoitustyo/blob/master/Top-Down-Shooter/dokumentaatio/kayttoohje.md)
 
 ## Komentorivitoiminnot
+
+### Testaus
 Testit voidaan suorittaa komennolla
 ```
 mvn test
@@ -22,4 +24,9 @@ Sovellus voidaan käynnistää komennolla
 ```
 mvn compile exec:java -Dexec.mainClass=ui.Ui
 ```
-
+### Checkstyle
+Tiedoston [checkstyle.xml](https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/checkstyle.xml)
+mukaan määritellyt tarkistukset voidaan suorittaa komennolla
+```
+mvn jxr:jxr checkstyle:checkstyle
+```
