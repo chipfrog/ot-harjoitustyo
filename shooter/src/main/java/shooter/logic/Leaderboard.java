@@ -5,10 +5,21 @@
  */
 package shooter.logic;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author jajuuso
  */
-public class Bullet {
+public class Leaderboard {
+    private int score;
+    private ArrayList list;
+    
+    
+    public Leaderboard() {
+        
+    }
+    
+    
     
 }
