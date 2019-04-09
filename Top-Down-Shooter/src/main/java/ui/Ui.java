@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package temp;
+package ui;
 
 
 import java.util.ArrayList;
@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -23,6 +24,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import logic.Player;
 
 /**
  *
@@ -31,10 +33,12 @@ import javafx.stage.Stage;
 public class Ui extends Application{
     int width;
     int height;
+    ImageView imageview;
     
     public Ui() {
         this.width = 1280;
         this.height = 720;
+        this.imageview = new ImageView("player.png");
     }
     @Override
     public void start(Stage stage) throws Exception {
@@ -77,16 +81,16 @@ public class Ui extends Application{
         gameOver.setFont(Font.font("Impact", 100));
         hbox.getChildren().add(healthbar);
         hbox.setAlignment(Pos.TOP_LEFT);
-        root.getChildren().addAll(hbox, player.getImage(), gameOver);
+        root.getChildren().addAll(hbox, imageview, gameOver);
         ArrayList<Enemy> enemies = createEnemies(10);
         for (int i = 0; i < enemies.size(); i ++) {
             root.getChildren().add(enemies.get(i).getShape());
         }
-        player.getImage().setLayoutX(600);
-        player.getImage().setLayoutY(300);
+        imageview.setLayoutX(600);
+        imageview.setLayoutY(300);
         
         Scene scene = new Scene(root, width, height);
-        PlayerMovement movement = new PlayerMovement(scene, player);
+        PlayerMovement movement = new PlayerMovement(scene, imageview);
         movement.keyCommands();
         stage.setScene(scene);
         stage.show();
@@ -97,7 +101,7 @@ public class Ui extends Application{
                 movement.movePlayerIcon();
                 for (Enemy e : enemies) {
                     e.chasePlayer(movement.getPlayerLocation());
-                    if (e.playerIsHit(player)) {
+                    if (e.playerIsHit(player, imageview)) {
                         healthbar.setText("Hp: " + player.getHp() + "/" + player.getMaxHp());
                     }
                 }

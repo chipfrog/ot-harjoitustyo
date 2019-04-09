@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package temp;
+package ui;
 
 import javafx.geometry.Point2D;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import logic.Player;
 
 
 
@@ -39,8 +41,8 @@ public class Enemy {
     public Rectangle getShape() {
         return this.rectangle;
     }
-    public boolean playerIsHit(Player p) {
-        if (p.invincibility() == true && rectangle.getBoundsInParent().intersects(p.getImage().getBoundsInParent())) {
+    public boolean playerIsHit(Player p, ImageView imageview) {
+        if (p.invincibility() == true && rectangle.getBoundsInParent().intersects(imageview.getBoundsInParent())) {
             p.takeDamage();
             return true;
         }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package temp;
+package logic;
 
 import javafx.scene.image.ImageView;
 
@@ -18,7 +18,6 @@ public class Player {
     private int stamina;
     private boolean alive;
     private boolean canBeHit;
-    private ImageView imageview;
     private double startTime;
     private double endTime;
     
@@ -27,7 +26,6 @@ public class Player {
         this.maxhp = 50;
         this.hp = 50;
         this.stamina = 50;
-        this.imageview = new ImageView("player.png");
         this.canBeHit = true;
         this.alive = true;
     }
@@ -50,9 +48,7 @@ public class Player {
     public String getName() {
         return this.name;
     }
-    public ImageView getImage() {
-        return this.imageview;
-    }
+
     public void Timer() {
         this.startTime = System.currentTimeMillis();
         this.endTime = startTime + 2000;
