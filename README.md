@@ -18,5 +18,8 @@ Testikattavuusraportti luodaan komennolla
 ```
 mvn test jacoco:report
 ```
-## Havaitut ongelmat
-Käynnistäminen onnistuu tällä hetkellä vain Netbeansin kautta, eli mvn compile exec:java -Dexec.mainClass=temp.Ui ei toimi.
+Sovellus voidaan käynnistää komennolla
+```
+mvn compile exec:java -Dexec.mainClass=ui.Ui
+```
+
