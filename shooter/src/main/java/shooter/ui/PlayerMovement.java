@@ -1,10 +1,13 @@
 package shooter.ui;
 
+import java.util.ArrayList;
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,11 +20,13 @@ import javafx.scene.input.KeyEvent;
  * @author jajuuso
  */
 public class PlayerMovement {
-    boolean goUp, goDown, goLeft, goRight, run;
+    boolean goUp, goDown, goLeft, goRight, run, clicked;
     Scene scene;
     Point2D playerLocation;
     ImageView imageview;
-    
+    ArrayList<Bullet> bullets;
+    ArrayList<Point2D> targets;
+    Point2D target;
     
     public PlayerMovement(Scene scene, ImageView imageview) {
         this.goUp = false;
@@ -31,7 +36,8 @@ public class PlayerMovement {
         this.run = false;
         this.scene = scene;
         this.imageview = imageview;
-        
+        this.bullets = new ArrayList<>();
+        this.targets = new ArrayList<>();
     }
     public void keyCommands() {
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -66,7 +72,6 @@ public class PlayerMovement {
                     break;
                 }
             }
-            
         });
     }
     public void movePlayerIcon() {
@@ -82,23 +87,30 @@ public class PlayerMovement {
         movePlayerBy(distanceX, distanceY);
     }
     public void movePlayerBy(double distanceX, double distanceY) {
-        double centerX = imageview.getBoundsInLocal().getWidth() / 2;
-        double centerY = imageview.getBoundsInLocal().getHeight() / 2;
-        double x = centerX + distanceX + imageview.getLayoutX();
-        double y = centerY + distanceY + imageview.getLayoutY();
+        double x = getPlayerCenterX() + distanceX + imageview.getLayoutX();
+        double y = getPlayerCenterY() + distanceY + imageview.getLayoutY();
         movePlayerTo(x, y);
     }
     public void movePlayerTo(double x, double y) {
-        double centerX = imageview.getBoundsInLocal().getWidth() / 2;
-        double centerY = imageview.getBoundsInLocal().getHeight() / 2;
+        double centerX = getPlayerCenterX();
+        double centerY = getPlayerCenterY();
         if (x - centerX >= 0 && x + centerX <= scene.getWidth() && y - centerY >= 0 && y + centerY <= scene.getHeight()) {
             imageview.relocate(x - centerX, y - centerY);
         }
     }
     public Point2D getPlayerLocation() {
-        this.playerLocation = new Point2D(imageview.getLayoutX() + imageview.getBoundsInLocal().getWidth() / 2, 
-                imageview.getLayoutY() + imageview.getBoundsInLocal().getHeight() / 2);
+        this.playerLocation = new Point2D(imageview.getLayoutX() + getPlayerCenterX(), imageview.getLayoutY() + getPlayerCenterY());
         return playerLocation;
     }
-    
+    public double getPlayerCenterX() {
+        double x = imageview.getBoundsInLocal().getWidth() / 2;
+        return x;
+    }
+    public double getPlayerCenterY() {
+        double y = imageview.getBoundsInLocal().getHeight() / 2;
+        return y;
+    }
+    public void mouseControl() {
+        
+    }
 }

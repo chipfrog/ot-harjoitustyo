@@ -10,17 +10,19 @@ import java.util.ArrayList;
 import java.util.Random;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -38,12 +40,11 @@ public class Ui extends Application{
     public Ui() {
         this.width = 1280;
         this.height = 720;
-        this.imageview = new ImageView("player.png");
+        this.imageview = new ImageView("velho.png");
     }
     @Override
     public void start(Stage stage) throws Exception {
         VBox box = new VBox();
-        
         Text title = new Text("Top Down Shooter");
         title.setFont(Font.font("Impact", 30));
         Button gameButton = new Button("New Game");
@@ -54,6 +55,7 @@ public class Ui extends Application{
         box.setAlignment(Pos.CENTER);
         box.setSpacing(20);
         
+        Player player = new Player("John");
         Scene scene = new Scene(box);
         stage.setScene(scene);
         stage.show();
@@ -61,7 +63,6 @@ public class Ui extends Application{
         gameButton.setOnAction(event -> {
             newGame();
         });
-        
         exitButton.setOnAction(event -> {
             stage.close();
         });
@@ -72,6 +73,7 @@ public class Ui extends Application{
     }
     public void gameScreen(Player player) {
         Stage stage = new Stage();
+        stage.setResizable(true);
         Pane root = new Pane();
         HBox hbox = new HBox();
         Label healthbar = new Label("Hp: " + player.getHp() + "/" + player.getMaxHp());
@@ -92,6 +94,18 @@ public class Ui extends Application{
         Scene scene = new Scene(root, width, height);
         PlayerMovement movement = new PlayerMovement(scene, imageview);
         movement.keyCommands();
+        ArrayList<Bullet> bullets = new ArrayList<>();
+        
+        scene.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent m) {
+                Point2D target = new Point2D(m.getX(), m.getY());
+                Bullet b = new Bullet(movement.getPlayerLocation(), target);
+                bullets.add(b);
+                root.getChildren().add(b.getShape());
+                b.getShape().relocate(movement.getPlayerLocation().getX(), movement.getPlayerLocation().getY());
+            }
+        });
         stage.setScene(scene);
         stage.show();
         
@@ -99,20 +113,64 @@ public class Ui extends Application{
             @Override
             public void handle(long now) {
                 movement.movePlayerIcon();
+                shoot(bullets);
+                
                 for (EnemyMovement e : enemies) {
+                    for (Bullet b : bullets) {
+                        e.isHit(b);
+                    }
                     e.chasePlayer(movement.getPlayerLocation());
                     if (e.playerIsHit(player, imageview)) {
                         healthbar.setText("Hp: " + player.getHp() + "/" + player.getMaxHp());
                     }
+                    
+                    
                 }
+                removeDeadObjects(bullets, enemies, root); 
                 if (player.alive() == false) {
                     this.stop();
                     gameOver.relocate(400, 310);
                     gameOver.setText("Game over!");
                 }
+                
             }
         };timer.start();
     }
+    public void shoot(ArrayList<Bullet> bullets) {
+        for (Bullet b : bullets) {
+            double angle = Math.atan2(b.target.getX() - b.bulletLocation.getX(), b.target.getY() - b.bulletLocation.getY());
+            double xV = 3 * Math.sin(angle);
+            double yV = 3 * Math.cos(angle);
+            b.getShape().relocate(b.getShape().getLayoutX() + xV, b.getShape().getLayoutY() + yV);
+            
+            if(b.getShape().getLayoutX() > width || b.getShape().getLayoutY() > height) {
+                b.setDead();
+            }
+        }
+    }
+    public void removeDeadObjects(ArrayList<Bullet> bullets, ArrayList<EnemyMovement> enemies, Pane pane) {
+        ArrayList<Bullet> bulletsToRemove = new ArrayList<>();
+        ArrayList<EnemyMovement> enemiesToRemove = new ArrayList<>();
+        
+        for (Bullet b : bullets) {
+            if (b.alive == false) {
+                pane.getChildren().remove(b.getShape());
+                bulletsToRemove.add(b);
+            }
+        }
+        for (EnemyMovement e: enemies) {
+            if (e.alive == false) {
+                pane.getChildren().remove(e.getShape());
+                enemiesToRemove.add(e);
+            }
+        }
+        bullets.removeAll(bulletsToRemove);
+        enemies.removeAll(enemiesToRemove);
+        
+    }
+    
+    
+    
     public void newGame() {
         Stage stage = new Stage();
         HBox hbox = new HBox();

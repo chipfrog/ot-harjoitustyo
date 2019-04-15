@@ -12,7 +12,6 @@ import javafx.scene.shape.Rectangle;
 import shooter.logic.Player;
 
 
-
 /**
  *
  * @author jajuuso
@@ -22,11 +21,13 @@ public class EnemyMovement {
     Point2D enemyLocation;
     Point2D direction;
     Rectangle rectangle;
+    boolean alive;
     
     public EnemyMovement(double x, double y) {
-        this.speed = 0.3;
+        this.speed = 0.5;
         this.enemyLocation = new Point2D(x, y);
         this.rectangle = new Rectangle(50, 50);
+        this.alive = true;
         rectangle.setFill(Color.GREEN);
         rectangle.relocate(x, y);
         
@@ -35,7 +36,6 @@ public class EnemyMovement {
         direction = playerLocation.subtract(enemyLocation).normalize();
         enemyLocation = enemyLocation.add(direction.multiply(speed));
         rectangle.relocate(enemyLocation.getX(), enemyLocation.getY());
-        
     }
     public Rectangle getShape() {
         return this.rectangle;
@@ -47,6 +47,15 @@ public class EnemyMovement {
         }
         return false;
     }
+    public void isHit(Bullet bullet) {
+        if (rectangle.getBoundsInParent().intersects(bullet.getShape().getBoundsInParent())){
+            this.alive = false;
+            bullet.setDead();
+            
+        };
+        
+    }
+    
     
     
     
