@@ -24,7 +24,7 @@ mvn test jacoco:report
 ```
 Sovellus voidaan käynnistää komennolla
 ```
-mvn compile exec:java -Dexec.mainClass=ui.Ui
+mvn compile exec:java -Dexec.mainClass=shooter.ui.Ui
 ```
 ### Checkstyle
 Tiedoston [checkstyle.xml](https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/checkstyle.xml)
