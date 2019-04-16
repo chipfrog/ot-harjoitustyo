@@ -47,13 +47,13 @@ public class EnemyMovement {
         }
         return false;
     }
-    public void isHit(Bullet bullet) {
-        if (rectangle.getBoundsInParent().intersects(bullet.getShape().getBoundsInParent())){
+    public boolean isHit(Bullet bullet) {
+        if (rectangle.getBoundsInParent().intersects(bullet.getShape().getBoundsInParent())) {
             this.alive = false;
             bullet.setDead();
-            
-        };
-        
+            return true;
+        }
+        return false;
     }
     
     

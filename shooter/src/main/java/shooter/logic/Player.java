@@ -20,6 +20,7 @@ public class Player {
     private boolean canBeHit;
     private double startTime;
     private double endTime;
+    private int score;
     
     public Player(String name) {
         this.name = name;
@@ -28,6 +29,7 @@ public class Player {
         this.stamina = 50;
         this.canBeHit = true;
         this.alive = true;
+        this.score = 0;
     }
     public int getHp() {
         return this.hp;
@@ -36,7 +38,7 @@ public class Player {
         return this.maxhp;
     }
     public void takeDamage() {
-        timer();
+        timer(2000);
         if (hp - 10 > 0) {
             this.hp -= 10;
             canBeHit = false;
@@ -49,9 +51,9 @@ public class Player {
         return this.name;
     }
 
-    public void timer() {
+    public void timer(int duration) {
         this.startTime = System.currentTimeMillis();
-        this.endTime = startTime + 2000;
+        this.endTime = startTime + duration;
     }
     
     public boolean invincibility() {
@@ -63,8 +65,10 @@ public class Player {
     public boolean alive() {
         return this.alive;
     }
-    
-    
-    
-    
+    public int getScore() {
+        return this.score;
+    }
+    public void increaseScore() {
+        this.score += 1;
+    }
 }

@@ -37,11 +37,4 @@ public class Bullet {
     public void setDead() {
         this.alive = false;
     }
-    
-    
-    
-    
-    
-    
-    
 }

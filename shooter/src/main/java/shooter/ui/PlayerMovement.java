@@ -6,8 +6,7 @@ import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -52,7 +51,8 @@ public class PlayerMovement {
                     break;
                     case D: goRight = true; 
                     break;
-                    case SHIFT: run = true; break;
+                    case SHIFT: run = true; 
+                    break;
                 }
             }
         });
@@ -75,11 +75,20 @@ public class PlayerMovement {
         });
     }
     public void movePlayerIcon() {
-        int distanceX = 0; int distanceY = 0;
-        if (goUp) distanceY -= 1;
-        if (goDown) distanceY += 1;
-        if (goLeft) distanceX -= 1;
-        if (goRight) distanceX += 1;
+        int distanceX = 0; 
+        int distanceY = 0;
+        if (goUp) {
+            distanceY -= 1;
+        }
+        if (goDown) {
+            distanceY += 1;
+        }
+        if (goLeft) {
+            distanceX -= 1;
+        }
+        if (goRight) {
+            distanceX += 1;
+        }
         if (run) {
             distanceX *= 2;
             distanceY *= 2;

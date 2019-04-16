@@ -47,6 +47,44 @@ public class PlayerTest{
     public void nameIsRight() {
         assertTrue(player.getName().equals("John"));
     }
+    @Test
+    public void canBeHitWhenNotInvincible() {
+        assertTrue(player.invincibility() == true);
+    }
+    @Test
+    public void cannotBeHitWhenInvincible() {
+        player.takeDamage();
+        assertTrue(player.invincibility() == false);
+    }
+    @Test
+    public void scoreStartsAtZero() {
+        assertTrue(player.getScore() == 0);
+    }
+    @Test
+    public void scoreIncreases() {
+        player.increaseScore();
+        player.increaseScore();
+        player.increaseScore();
+        assertTrue(player.getScore() == 3);
+    }
+    @Test
+    public void playerIsAliveAtStart() {
+        assertTrue(player.alive() == true);
+    }
+    @Test
+    public void playerDiesAfterTakingTooMuchDamage() {
+        player.takeDamage();
+        player.takeDamage();
+        player.takeDamage();
+        player.takeDamage();
+        player.takeDamage();
+        player.takeDamage();
+        assertTrue(player.alive() == false);
+    }
+    @Test
+    public void maxHpIsRight() {
+        assertTrue(player.getMaxHp() == 50);
+    }
     
     
     

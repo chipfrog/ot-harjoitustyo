@@ -77,13 +77,17 @@ public class Ui extends Application{
         Pane root = new Pane();
         HBox hbox = new HBox();
         Label healthbar = new Label("Hp: " + player.getHp() + "/" + player.getMaxHp());
-        Label gameOver = new Label();
+        Label score = new Label("Score: " + player.getScore());
+        Label endText = new Label();
         
         healthbar.setFont(Font.font("Impact", 20));
-        gameOver.setFont(Font.font("Impact", 100));
-        hbox.getChildren().add(healthbar);
+        score.setFont(Font.font("Impact", 20));
+        endText.setFont(Font.font("Impact", 100));
+        hbox.getChildren().addAll(healthbar, score);
         hbox.setAlignment(Pos.TOP_LEFT);
-        root.getChildren().addAll(hbox, imageview, gameOver);
+        hbox.setSpacing(25);
+        root.getChildren().addAll(hbox, imageview, endText);
+        
         ArrayList<EnemyMovement> enemies = createEnemies(10);
         for (int i = 0; i < enemies.size(); i ++) {
             root.getChildren().add(enemies.get(i).getShape());
@@ -106,6 +110,8 @@ public class Ui extends Application{
                 b.getShape().relocate(movement.getPlayerLocation().getX(), movement.getPlayerLocation().getY());
             }
         });
+        hbox.toFront();
+        endText.toFront();
         stage.setScene(scene);
         stage.show();
         
@@ -114,25 +120,29 @@ public class Ui extends Application{
             public void handle(long now) {
                 movement.movePlayerIcon();
                 shoot(bullets);
-                
                 for (EnemyMovement e : enemies) {
                     for (Bullet b : bullets) {
-                        e.isHit(b);
+                        if(e.isHit(b)) {
+                            player.increaseScore();
+                            score.setText("Score: " + player.getScore());
+                        }
                     }
                     e.chasePlayer(movement.getPlayerLocation());
                     if (e.playerIsHit(player, imageview)) {
                         healthbar.setText("Hp: " + player.getHp() + "/" + player.getMaxHp());
                     }
-                    
-                    
                 }
                 removeDeadObjects(bullets, enemies, root); 
                 if (player.alive() == false) {
                     this.stop();
-                    gameOver.relocate(400, 310);
-                    gameOver.setText("Game over!");
+                    endText.relocate(400, 310);
+                    endText.setText("Game over!");
                 }
-                
+                if (enemies.isEmpty()) {
+                    this.stop();
+                    endText.relocate(400, 310);
+                    endText.setText("You survived!");
+                }
             }
         };timer.start();
     }
@@ -166,11 +176,7 @@ public class Ui extends Application{
         }
         bullets.removeAll(bulletsToRemove);
         enemies.removeAll(enemiesToRemove);
-        
     }
-    
-    
-    
     public void newGame() {
         Stage stage = new Stage();
         HBox hbox = new HBox();
