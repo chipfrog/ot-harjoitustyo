@@ -22,6 +22,8 @@ Testikattavuusraportti luodaan komennolla
 ```
 mvn test jacoco:report
 ```
+Raportin saa auki selaimella avaamalla tiedosto _target/site/jacoco/index.html_
+
 Sovellus voidaan käynnistää komennolla
 ```
 mvn compile exec:java -Dexec.mainClass=shooter.ui.Ui
@@ -32,8 +34,10 @@ mukaan määritellyt tarkistukset voidaan suorittaa komennolla
 ```
 mvn jxr:jxr checkstyle:checkstyle
 ```
+Tiedostoa voidaan tarkastella selaimella avaamalla _target/site/checkstyle.html_
 ### Suoritettavan jarin generointi
 Jar-tiedoston luominen tapahtuu komennolla
 ```
 mvn package
 ```
+Suoritettava jar-tiedosto generoituu hakemiston _target_ alle nimellä _Shooter-1.0-SNAPSHOT.jar_
