@@ -1,5 +1,5 @@
 # Top-Down-Shooter
-Kyseessä on 2D-peli, jossa tarkoituksena on kerätä pisteitä ampumalla hirviöitä ja välttää syödyksi tuleminen.
+Kyseessä on 2D-peli, jossa tarkoituksena on kerätä pisteitä ampumalla hirviöitä ja estää niitä osumasta pelaajaan.
 
 ## Dokumentaatio
 
@@ -31,4 +31,9 @@ Tiedoston [checkstyle.xml](https://github.com/chipfrog/ot-harjoitustyo/blob/mast
 mukaan määritellyt tarkistukset voidaan suorittaa komennolla
 ```
 mvn jxr:jxr checkstyle:checkstyle
+```
+### Suoritettavan jarin generointi
+Jar-tiedoston luominen tapahtuu komennolla
+```
+mvn package
 ```
