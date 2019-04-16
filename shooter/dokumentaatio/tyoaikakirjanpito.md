@@ -10,4 +10,7 @@
 |3.4.   | 2     | Vektoreihin tutustumista, Point2D, Vec2D jne...|
 |5.4.   | 3     | Hirviöiden liikkeelle saaminen |
 |6.4.   | 4     | Hirviöt seuraavat pelaajaa, osuma vähentää pelaajan hp:ta |
-|Yht.   | 26    | |
+|12.4.  | 3     | Pelaaja voi ampua |
+|13.4.  | 3     | Kuolleet hirviöt ja osuneet luodit poistetaan näkyvistä |
+|16.4.  | 3     | Ajastimen ym. testailua, refaktorointia |
+|Yht.   | 35    | |
