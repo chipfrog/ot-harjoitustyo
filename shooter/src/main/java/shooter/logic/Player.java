@@ -5,6 +5,8 @@
  */
 package shooter.logic;
 
+import javafx.scene.image.ImageView;
+
 
 
 /**
@@ -21,6 +23,7 @@ public class Player {
     private double startTime;
     private double endTime;
     private int score;
+    private ImageView imageview;
     
     public Player(String name) {
         this.name = name;
@@ -30,6 +33,7 @@ public class Player {
         this.canBeHit = true;
         this.alive = true;
         this.score = 0;
+        this.imageview = new ImageView("velho.png");
     }
     public int getHp() {
         return this.hp;

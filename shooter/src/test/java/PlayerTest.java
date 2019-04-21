@@ -9,13 +9,14 @@
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.testfx.framework.junit.ApplicationTest;
 import shooter.logic.Player;
 
 /**
  *
  * @author jajuuso
  */
-public class PlayerTest{
+public class PlayerTest extends ApplicationTest{
     Player player;
     
     

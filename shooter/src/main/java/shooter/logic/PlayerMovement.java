@@ -1,11 +1,14 @@
-package shooter.ui;
+package shooter.logic;
 
+import shooter.logic.Bullet;
 import java.util.ArrayList;
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 
 
 /*
@@ -23,9 +26,8 @@ public class PlayerMovement {
     Scene scene;
     Point2D playerLocation;
     ImageView imageview;
-    ArrayList<Bullet> bullets;
     ArrayList<Point2D> targets;
-    Point2D target;
+    
     
     public PlayerMovement(Scene scene, ImageView imageview) {
         this.goUp = false;
@@ -35,8 +37,7 @@ public class PlayerMovement {
         this.run = false;
         this.scene = scene;
         this.imageview = imageview;
-        this.bullets = new ArrayList<>();
-        this.targets = new ArrayList<>();
+        
     }
     public void keyCommands() {
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -119,7 +120,16 @@ public class PlayerMovement {
         double y = imageview.getBoundsInLocal().getHeight() / 2;
         return y;
     }
-    public void mouseControl() {
-        
+    public void mouseControl(Pane root, ArrayList<Bullet> bullets) {
+        scene.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent m) {
+                Point2D target = new Point2D(m.getX(), m.getY());
+                Bullet b = new Bullet(5, getPlayerLocation(), target);
+                bullets.add(b);
+                root.getChildren().add(b.getShape());
+                b.getShape().relocate(getPlayerLocation().getX(), getPlayerLocation().getY());
+            }
+        });
     }
 }

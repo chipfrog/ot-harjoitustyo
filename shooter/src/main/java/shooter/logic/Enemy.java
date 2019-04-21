@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package shooter.ui;
+package shooter.logic;
 
+import shooter.logic.Bullet;
 import javafx.geometry.Point2D;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import shooter.logic.GameObject;
 import shooter.logic.Player;
 
 
@@ -16,26 +18,21 @@ import shooter.logic.Player;
  *
  * @author jajuuso
  */
-public class EnemyMovement {
-    double speed;
-    Point2D enemyLocation;
+public class Enemy extends GameObject{
+    Point2D location;
     Point2D direction;
     Rectangle rectangle;
-    boolean alive;
     
-    public EnemyMovement(double x, double y) {
-        this.speed = 0.5;
-        this.enemyLocation = new Point2D(x, y);
+    public Enemy(double speed, double x, double y) {
+        super(speed);
+        this.location = new Point2D(x, y);
         this.rectangle = new Rectangle(50, 50);
-        this.alive = true;
         rectangle.setFill(Color.GREEN);
-        rectangle.relocate(x, y);
-        
     }
     public void chasePlayer(Point2D playerLocation) {
-        direction = playerLocation.subtract(enemyLocation).normalize();
-        enemyLocation = enemyLocation.add(direction.multiply(speed));
-        rectangle.relocate(enemyLocation.getX(), enemyLocation.getY());
+        direction = playerLocation.subtract(location).normalize();
+        location = location.add(direction.multiply(getSpeed()));
+        rectangle.relocate(location.getX(), location.getY());
     }
     public Rectangle getShape() {
         return this.rectangle;
@@ -49,7 +46,7 @@ public class EnemyMovement {
     }
     public boolean isHit(Bullet bullet) {
         if (rectangle.getBoundsInParent().intersects(bullet.getShape().getBoundsInParent())) {
-            this.alive = false;
+            setDead();
             bullet.setDead();
             return true;
         }
