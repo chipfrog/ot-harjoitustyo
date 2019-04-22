@@ -37,12 +37,10 @@ public class Enemy extends GameObject{
     public Rectangle getShape() {
         return this.rectangle;
     }
-    public boolean playerIsHit(Player p, ImageView imageview) {
-        if (p.invincibility() == true && rectangle.getBoundsInParent().intersects(imageview.getBoundsInParent())) {
+    public void playerIsHit(Player p) {
+        if (p.invincibilityOff() == true && rectangle.getBoundsInParent().intersects(p.getImageView().getBoundsInParent())) {
             p.takeDamage();
-            return true;
         }
-        return false;
     }
     public boolean isHit(Bullet bullet) {
         if (rectangle.getBoundsInParent().intersects(bullet.getShape().getBoundsInParent())) {

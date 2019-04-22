@@ -7,10 +7,7 @@ package shooter.logic;
 
 import java.util.ArrayList;
 import java.util.Random;
-import javafx.geometry.Point2D;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 
 /**
  *
@@ -28,11 +25,6 @@ public class Wave {
         this.distance = distance;
         this.enemiesList = createEnemies(numberOfEnemies);
         
-    }
-    public void spawnEnemies(Pane root) {
-        for (Enemy enemy : enemiesList) {
-           root.getChildren().add(enemy.getShape());
-        }
     }
     private ArrayList<Enemy> createEnemies (int number) {
         ArrayList<Enemy> enemies = new ArrayList<>();
@@ -57,7 +49,7 @@ public class Wave {
                 rx = randomDistance.nextInt(distance) * -1;
                 ry = randomDistance.nextInt((int) scene.getHeight());
             }
-            Enemy e = new Enemy(2, rx, ry);
+            Enemy e = new Enemy(0.5, rx, ry);
             enemies.add(e);
         }
         return enemies;

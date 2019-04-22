@@ -54,13 +54,11 @@ public class Player {
     public String getName() {
         return this.name;
     }
-
     public void timer(int duration) {
         this.startTime = System.currentTimeMillis();
         this.endTime = startTime + duration;
     }
-    
-    public boolean invincibility() {
+    public boolean invincibilityOff() {
         if (System.currentTimeMillis() >= endTime) {
             canBeHit = true;
         }
@@ -74,5 +72,8 @@ public class Player {
     }
     public void increaseScore() {
         this.score += 1;
+    }
+    public ImageView getImageView() {
+        return this.imageview;
     }
 }

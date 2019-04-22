@@ -8,9 +8,6 @@ package shooter.ui;
 import shooter.logic.Enemy;
 import java.util.ArrayList;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
-import shooter.logic.Bullet;
-import shooter.logic.ObjectHandler;
 import shooter.logic.Wave;
 
 /**
@@ -18,57 +15,56 @@ import shooter.logic.Wave;
  * @author jajuuso
  */
 public class Level {
+    boolean cleared;
     int waves;
-    int numberOfEnemies;
+    int totalEnemies;
+    int enemiesInWave;
     double spawnInterval;
     double startTime;
     Scene scene;
     ArrayList<Enemy> enemies;
-    boolean noWaiting;
-    ObjectHandler handler;
+    boolean firstWave;
     int waveCounter;
     
-    public Level(ArrayList<Enemy> enemies, int waves, double spawnInterval, Scene scene) {
+    public Level(int waves, int enemiesInWave, double spawnInterval, Scene scene) {
         this.waves = waves;
         this.spawnInterval = spawnInterval;
         this.startTime = 0;
         this.scene = scene;
-        this.enemies = enemies;
-        this.noWaiting = true;
-        this.handler = new ObjectHandler(scene);
+        this.enemies = new ArrayList<>();
+        this.firstWave = true;
+        this.enemiesInWave = enemiesInWave;
         this.waveCounter = 0;
+        this.totalEnemies = waves * enemiesInWave;
+        this.cleared = false;
     }
-    public void spawnWave(Pane root) {
-        if (noWaiting) {
-            Wave wave = new Wave(10, 100, scene);
-            enemies.addAll(wave.getEnemyList());
-            wave.spawnEnemies(root);
+    public ArrayList<Enemy> spawnWave() {
+        if (firstWave) {
+            Wave wave = new Wave(enemiesInWave, 100, scene);
             startTime = System.currentTimeMillis();
-            noWaiting = false;
+            firstWave = false;
             waveCounter ++;
-        }
-        double testi = (System.currentTimeMillis() - startTime) / 1000;
-        if (testi > spawnInterval) {
-            Wave wave = new Wave(20, 100, scene);
             enemies.addAll(wave.getEnemyList());
-            wave.spawnEnemies(root);
+            return wave.getEnemyList();
+        }
+        double timeDiff = (System.currentTimeMillis() - startTime) / 1000;
+        if (timeDiff > spawnInterval && waveCounter < waves) {
             startTime = System.currentTimeMillis();
             waveCounter ++;
+            Wave wave = new Wave(enemiesInWave, 100, scene);
+            enemies.addAll(wave.getEnemyList());
+            return wave.getEnemyList();
         }
-        
+        return null;
     }
-    public boolean levelContinues() {
-        return (waveCounter > waves);
+    public void defeatEnemies(ArrayList<Enemy> defeatedEnemies) {
+        totalEnemies -= defeatedEnemies.size();
     }
-//    public ArrayList<Enemy> getEnemies() {
-//        return this.enemies;
-//    }
-//    public void update(ArrayList<Bullet> bullets, Pane root) {
-//        handler.removeDeadBullets(bullets, root);
-//        handler.removeDeadEnemies(allEnemies, root);
-//        
-//    }
-    
-    
-    
+    public boolean cleared() {
+        if (totalEnemies == 0) {
+            cleared = true;
+            return true;
+        }
+        return false;
+    }
 }

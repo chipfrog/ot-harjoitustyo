@@ -50,12 +50,12 @@ public class PlayerTest extends ApplicationTest{
     }
     @Test
     public void canBeHitWhenNotInvincible() {
-        assertTrue(player.invincibility() == true);
+        assertTrue(player.invincibilityOff() == true);
     }
     @Test
     public void cannotBeHitWhenInvincible() {
         player.takeDamage();
-        assertTrue(player.invincibility() == false);
+        assertTrue(player.invincibilityOff() == false);
     }
     @Test
     public void scoreStartsAtZero() {

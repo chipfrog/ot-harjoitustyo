@@ -24,7 +24,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import shooter.logic.GameLogic;
+import shooter.logic.LevelHandler;
 import shooter.logic.ObjectHandler;
 import shooter.logic.Player;
 
@@ -36,12 +39,13 @@ import shooter.logic.Player;
 public class Ui extends Application{
     int width;
     int height;
-    ImageView imageview;
+   
     
     public Ui() {
         this.width = 1980;
         this.height = 1080;
-        this.imageview = new ImageView("velho.png");
+        
+        
     }
     @Override
     public void start(Stage stage) throws Exception {
@@ -56,7 +60,7 @@ public class Ui extends Application{
         box.setAlignment(Pos.CENTER);
         box.setSpacing(20);
         
-        Player player = new Player("John");
+       
         Scene scene = new Scene(box);
         stage.setScene(scene);
         stage.show();
@@ -67,38 +71,37 @@ public class Ui extends Application{
         exitButton.setOnAction(event -> {
             stage.close();
         });
-        
     }
     public static void main(String[] args) {
         launch(args);
     }
-    public void gameScreen(Player player) {
+    public void gameScreen(Player player, GameLogic logic) {
         Stage stage = new Stage();
         stage.setResizable(true);
+        stage.initModality(Modality.APPLICATION_MODAL);
         Pane root = new Pane();
         HBox hbox = new HBox();
         Label healthbar = new Label("Hp: " + player.getHp() + "/" + player.getMaxHp());
-        Label score = new Label("Score: " + player.getScore());
+        Label scoreLabel = new Label("Score: " + player.getScore());
         Label endText = new Label();
         
         healthbar.setFont(Font.font("Impact", 20));
-        score.setFont(Font.font("Impact", 20));
+        scoreLabel.setFont(Font.font("Impact", 20));
         endText.setFont(Font.font("Impact", 100));
-        hbox.getChildren().addAll(healthbar, score);
+        hbox.getChildren().addAll(healthbar, scoreLabel);
         hbox.setAlignment(Pos.TOP_LEFT);
         hbox.setSpacing(25);
-        root.getChildren().addAll(hbox, imageview, endText);
-        imageview.setLayoutX(600);
-        imageview.setLayoutY(300);
+        root.getChildren().addAll(hbox, endText);
+        
+        int score = player.getScore();
+        int hp = player.getHp();
         
         Scene scene = new Scene(root, width, height);
-        ArrayList<Bullet> bullets = new ArrayList<>();
-        ObjectHandler objectHandler = new ObjectHandler(scene);
-        PlayerMovement movement = new PlayerMovement(scene, imageview);
-        movement.keyCommands();
-        movement.mouseControl(root, bullets);
-        ArrayList<Enemy> enemies = new ArrayList<>();
-        Level level = new Level(enemies, 10, 7, scene);
+        
+        logic.setScreenAndPane(scene, root);
+        logic.setupClasses();
+        logic.addAssetsToPane();
+        logic.setUpControls();
         
         hbox.toFront();
         endText.toFront();
@@ -108,37 +111,27 @@ public class Ui extends Application{
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                level.spawnWave(root);
-                movement.movePlayerIcon();
-                objectHandler.shootBullets(bullets);
-                
-                for (Enemy e : enemies) {
-                    for (Bullet b : bullets) {
-                        if(e.isHit(b)) {
-                            player.increaseScore();
-                            score.setText("Score: " + player.getScore());
-                        }
-                    }
-                    e.chasePlayer(movement.getPlayerLocation());
-                    if (e.playerIsHit(player, imageview)) {
-                        healthbar.setText("Hp: " + player.getHp() + "/" + player.getMaxHp());
-                    }
+                logic.update();
+                if (player.getScore() != score) {
+                    scoreLabel.setText("Score: " + player.getScore());
                 }
-                objectHandler.removeDeadBullets(bullets, root);
-                objectHandler.removeDeadEnemies(enemies, root);
-                
-                if (player.alive() == false) {
-                    this.stop();
-                    endText.relocate(400, 310);
-                    endText.setText("Game over!");
+                if (player.getHp() != hp) {
+                    healthbar.setText("Hp: " + player.getHp() + "/" + player.getMaxHp());
                 }
-                if (level.levelContinues()) {
+                if (logic.stopGame()) {
                     this.stop();
-                    endText.relocate(400, 310);
-                    endText.setText("You survived!");
+                    if (player.alive() == false) {
+                        endText.relocate(scene.getWidth() / 3, scene.getHeight() / 3);
+                        endText.setText("Game over!");
+                    } else {
+                        endText.relocate(scene.getWidth() / 3, scene.getHeight() / 3);
+                        endText.setText("You survived!");
+                        nextLevel(stage, player, logic);
+                    }
                 }
             }
         };timer.start();
+        
     }
     public void newGame() {
         Stage stage = new Stage();
@@ -152,7 +145,7 @@ public class Ui extends Application{
         Button startButton = new Button("Start!");
         Label errorMessage = new Label();
         vbox.getChildren().addAll(hbox, startButton, errorMessage);
-        vbox.setSpacing(10);
+        vbox.setSpacing(20);
         vbox.setPrefSize(400, 200);
         vbox.setAlignment(Pos.TOP_LEFT);
         vbox.setPadding(new Insets(20));
@@ -166,10 +159,41 @@ public class Ui extends Application{
                 errorMessage.setText("You need to enter a name for the player!");
             } else {
                 Player player = new Player(nameField.getText());
+                GameLogic logic = new GameLogic(player);
                 stage.close();
-                gameScreen(player);
+                gameScreen(player, logic);
             }
         });
-    }    
+    }
+    public void nextLevel(Stage stageToClose, Player player, GameLogic logic) {
+        Stage stage = new Stage();
+        VBox vbox = new VBox();
+        
+        Button toNextLevel = new Button("Next level!");
+        Button quitGame = new Button("Quit game");
+        vbox.getChildren().addAll(toNextLevel, quitGame);
+        vbox.setSpacing(20);
+        vbox.setPrefSize(400, 200);
+        vbox.setPadding(new Insets(20));
+        vbox.setAlignment(Pos.CENTER);
+        
+        Scene scene = new Scene(vbox);
+        stage.setScene(scene);
+        stage.setAlwaysOnTop(true);
+        stage.show();
+        
+        toNextLevel.setOnAction(event ->{
+            stageToClose.close();
+            stage.close();
+            logic.moveToNextLevel();
+            gameScreen(player, logic);
+            
+        });
+        quitGame.setOnAction(event ->{
+            stageToClose.close();
+            stage.close();
+        });
+    }
+    
         
 }
