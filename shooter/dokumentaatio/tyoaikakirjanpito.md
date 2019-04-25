@@ -13,4 +13,6 @@
 |12.4.  | 3     | Pelaaja voi ampua |
 |13.4.  | 3     | Kuolleet hirviöt ja osuneet luodit poistetaan näkyvistä |
 |16.4.  | 3     | Ajastimen ym. testailua, refaktorointia |
-|Yht.   | 35    | |
+|19.4.  | 4     | Sovelluslogiikan suurempaa eriyttämistä käyttöliittymälogiikasta |
+|22.4.  | 5     | Tasolta toiselle siirtyminen |
+|Yht.   | 44    | |
