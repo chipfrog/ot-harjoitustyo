@@ -16,6 +16,12 @@ Kyseessä on 2D-peli, jossa tarkoituksena on kerätä pisteitä ampumalla hirvi�
 
 ## Komentorivitoiminnot
 
+### Huom!
+Jos alla olevat komennot eivät sellaisenaan toimi, Java 8 ei välttämättä ole käytössä ja silloin täytyy ajaa ensin komento:
+```
+export PATH=/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin:$PATH
+```
+
 ### Testaus
 Testit voidaan suorittaa komennolla
 ```
