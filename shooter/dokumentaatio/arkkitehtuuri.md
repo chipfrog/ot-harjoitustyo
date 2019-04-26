@@ -25,7 +25,7 @@ Player-luokka sisältää pelaajan attribuutit ja tietokantaan tallennettavat ti
 
 
 ### Luokkakaavio
-<img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/luokkakaavio.png">
+<img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/kansiorakenne.png">
 
 ### Sekvenssikaavio
 <img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/sekvenssikaavio.png">
