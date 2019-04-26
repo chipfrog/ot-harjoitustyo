@@ -5,9 +5,7 @@
  */
 package shooter.logic;
 
-import java.util.ArrayList;
 import javafx.scene.Scene;
-import shooter.ui.Level;
 
 /**
  *
@@ -16,31 +14,32 @@ import shooter.ui.Level;
 public class LevelHandler {
     int waves;
     int enemiesInWave;
-    int spawnInterval;
-    int clearedLevels;
+    double spawnInterval;
+    int levelNumber;
     
     
-    public LevelHandler(int waves, int enemiesInWave, int spawnInterval) {
+    public LevelHandler(int waves, int enemiesInWave, double spawnInterval) {
         this.waves = waves;
         this.enemiesInWave = enemiesInWave;
         this.spawnInterval = spawnInterval;
-        this.clearedLevels = 0;
+        this.levelNumber = 1;
     }
     public Level createNewLevel(Scene scene) {
-        if (clearedLevels == 0) {
-            Level level = new Level(waves, enemiesInWave, spawnInterval, scene);
+        if (levelNumber == 1) {
+            Level level = new Level(levelNumber, waves, enemiesInWave, spawnInterval, scene);
             return level;
         } else {
             waves += 1;
             enemiesInWave += 1;
-            clearedLevels ++;
+            
         }
-        Level level = new Level(waves, enemiesInWave, spawnInterval, scene);
+        Level level = new Level(levelNumber, waves, enemiesInWave, spawnInterval, scene);
         return level;
     }
-    public void increaseClearedLevels() {
-        clearedLevels ++;
+    public void nextLevel() {
+        levelNumber ++;
     }
+    
     
     
     

@@ -25,23 +25,23 @@ public class PlayerTest extends ApplicationTest{
     
     @Before
     public void setUp() {
-        this.player = new Player("John");
+        this.player = new Player("John", 0);
         
     }
     @Test
     public void playerTakesDamage() {
-        player.takeDamage();
-        player.takeDamage();
+        player.takeDamage(5);
+        player.takeDamage(15);
         assertTrue(player.getHp() == 30);
     }
     @Test
     public void hpIsNeverNegative() {
-        player.takeDamage();
-        player.takeDamage();
-        player.takeDamage();
-        player.takeDamage();
-        player.takeDamage();
-        player.takeDamage();
+        player.takeDamage(10);
+        player.takeDamage(10);
+        player.takeDamage(10);
+        player.takeDamage(10);
+        player.takeDamage(20);
+        player.takeDamage(50);
         assertTrue(player.getHp() == 0);
     }
     @Test
@@ -54,7 +54,7 @@ public class PlayerTest extends ApplicationTest{
     }
     @Test
     public void cannotBeHitWhenInvincible() {
-        player.takeDamage();
+        player.takeDamage(10);
         assertTrue(player.invincibilityOff() == false);
     }
     @Test
@@ -63,10 +63,9 @@ public class PlayerTest extends ApplicationTest{
     }
     @Test
     public void scoreIncreases() {
-        player.increaseScore();
-        player.increaseScore();
-        player.increaseScore();
-        assertTrue(player.getScore() == 3);
+        player.increaseScore(2);
+        player.increaseScore(5);
+        assertTrue(player.getScore() == 7);
     }
     @Test
     public void playerIsAliveAtStart() {
@@ -74,12 +73,9 @@ public class PlayerTest extends ApplicationTest{
     }
     @Test
     public void playerDiesAfterTakingTooMuchDamage() {
-        player.takeDamage();
-        player.takeDamage();
-        player.takeDamage();
-        player.takeDamage();
-        player.takeDamage();
-        player.takeDamage();
+        player.takeDamage(40);
+        player.takeDamage(100);
+        
         assertTrue(player.alive() == false);
     }
     @Test

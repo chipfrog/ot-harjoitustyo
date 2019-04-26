@@ -6,9 +6,7 @@
 package shooter.ui;
 
 
-import shooter.logic.PlayerMovement;
-import shooter.logic.Enemy;
-import shooter.logic.Bullet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -18,7 +16,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -26,11 +23,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import shooter.db.Database;
+import shooter.db.PlayerDao;
 import shooter.logic.GameLogic;
-import shooter.logic.LevelHandler;
-import shooter.logic.ObjectHandler;
 import shooter.logic.Player;
-
 
 /**
  *
@@ -39,12 +35,14 @@ import shooter.logic.Player;
 public class Ui extends Application{
     int width;
     int height;
-   
+    Database db;
+    PlayerDao dao;
     
     public Ui() {
         this.width = 1980;
         this.height = 1080;
-        
+        this.db = new Database("jdbc:sqlite:/home/jajuuso/Documents/tietokanta.db");
+        db.createDatabase();
         
     }
     @Override
@@ -53,20 +51,23 @@ public class Ui extends Application{
         Text title = new Text("Top Down Shooter");
         title.setFont(Font.font("Impact", 30));
         Button gameButton = new Button("New Game");
+        Button leaderboard = new Button("Leaderboard");
         Button exitButton = new Button("Exit");
         
-        box.getChildren().addAll(title, gameButton, exitButton);
+        box.getChildren().addAll(title, gameButton, leaderboard, exitButton);
         box.setPrefSize(600, 400);
         box.setAlignment(Pos.CENTER);
         box.setSpacing(20);
         
-       
         Scene scene = new Scene(box);
         stage.setScene(scene);
         stage.show();
         
         gameButton.setOnAction(event -> {
             newGame();
+        });
+        leaderboard.setOnAction(event -> {
+            showScoreboard();
         });
         exitButton.setOnAction(event -> {
             stage.close();
@@ -155,10 +156,10 @@ public class Ui extends Application{
         stage.show();
         
         startButton.setOnAction(event ->{
-            if (nameField.getText().isEmpty()) {
-                errorMessage.setText("You need to enter a name for the player!");
+            if (nameField.getText().isEmpty() || nameField.getText().length() < 4 || nameField.getText().length() > 15) {
+                errorMessage.setText("You need to enter a name for the player! \n The name must be at least 4 characters long \n and not over 15 characters.");
             } else {
-                Player player = new Player(nameField.getText());
+                Player player = new Player(nameField.getText(), 0);
                 GameLogic logic = new GameLogic(player);
                 stage.close();
                 gameScreen(player, logic);
@@ -168,7 +169,6 @@ public class Ui extends Application{
     public void nextLevel(Stage stageToClose, Player player, GameLogic logic) {
         Stage stage = new Stage();
         VBox vbox = new VBox();
-        
         Button toNextLevel = new Button("Next level!");
         Button quitGame = new Button("Quit game");
         vbox.getChildren().addAll(toNextLevel, quitGame);
@@ -183,16 +183,53 @@ public class Ui extends Application{
         stage.show();
         
         toNextLevel.setOnAction(event ->{
-            stageToClose.close();
             stage.close();
             logic.moveToNextLevel();
             gameScreen(player, logic);
+            stageToClose.close();
             
         });
         quitGame.setOnAction(event ->{
+            dao = new PlayerDao(db);
+            boolean found = false;
+            
+            try {
+               found = dao.contains(player);
+                
+            } catch (SQLException e) {
+                System.out.println("Virhe containissa");
+            }
+            if (found) {
+                System.out.println("Tietokannasta löytyy pelaaja " + player.getName());
+                try {
+                    dao.updateBestScore(player);
+                } catch (SQLException e) {
+                    System.out.println("virhe updatessa");
+                }
+            } else {
+                try {
+                    dao.addPlayer(player); 
+                } catch (SQLException e) {
+                    System.out.println("virhe lisäyksessä");
+                }
+            }
             stageToClose.close();
             stage.close();
         });
+    }
+    public void showScoreboard() {
+        ArrayList<Player> list = dao.list();  
+        Stage stage = new Stage();
+        Pane pane = new Pane();
+        VBox vbox = new VBox();
+        
+        for (Player p : list) {
+            vbox.getChildren().add(new Label(p.getName()));
+        }
+        Scene scene = new Scene(pane);
+        stage.setScene(scene);
+        stage.show();
+        
     }
     
         

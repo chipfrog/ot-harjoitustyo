@@ -5,10 +5,11 @@
  */
 package shooter.logic;
 
+import shooter.GameObjects.Enemies.Enemy;
+import shooter.GameObjects.Bullet;
 import java.util.ArrayList;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
-import shooter.ui.Level;
 
 /**
  *
@@ -30,15 +31,13 @@ public class GameLogic {
     
     public GameLogic(Player player) {
         this.waves = 2;
-        this.enemiesInWave = 3;
-        this.interval = 5;
+        this.enemiesInWave = 5;
+        this.interval = 7;
         this.levelHandler = new LevelHandler(waves, enemiesInWave, interval);
         this.player = player;
         this.enemies = new ArrayList<>();
         this.bullets = new ArrayList<>();
         this.levelsBeaten = 0;
-        
-        
     }
     public void update() {
         updateEnemies();
@@ -47,10 +46,9 @@ public class GameLogic {
         removeDeadBullets(bullets, root);
         shootBullets(bullets, scene);
         chasePlayer();
-        
     }
     public void moveToNextLevel() {
-        levelHandler.increaseClearedLevels();
+        levelHandler.nextLevel();
         level = levelHandler.createNewLevel(scene);
     }
     public void updateEnemies() {
@@ -58,16 +56,15 @@ public class GameLogic {
         if (enemisToSpawn != null) {
             for (Enemy enemy : enemisToSpawn) {
             enemies.add(enemy);
-            root.getChildren().add(enemy.getShape());
+            root.getChildren().add(enemy.getImage());
             }
         }
-        
     }
     public void removeDeadEnemies(ArrayList<Enemy> list, Pane root) {
         ArrayList<Enemy> enemiesToRemove = new ArrayList<>();
         for (Enemy enemy : list) {
             if (enemy.isAlive() == false) {
-                root.getChildren().remove(enemy.getShape());
+                root.getChildren().remove(enemy.getImage());
                 enemiesToRemove.add(enemy);
             }
         }
@@ -93,12 +90,18 @@ public class GameLogic {
     public void chasePlayer() {
         for (Enemy e : enemies) {
             for (Bullet b : bullets) {
-                if(e.isHit(b)) {
-                    player.increaseScore();
+                if(e.hitDetection(b.getImage())) {
+                    e.damageHealth();
+                    b.setDead();
+                    if (!e.isAlive()) {
+                        player.increaseScore(e.givePoints()); 
+                    }
                 }
             }
             e.chasePlayer(pMovement.getPlayerLocation());
-            e.playerIsHit(player); 
+            if (e.hitDetection(player.getImageView()) && player.invincibilityOff()) {
+                player.takeDamage(e.getDamage());
+            } 
         }
     }
     public void setUpControls() {
@@ -123,8 +126,16 @@ public class GameLogic {
         this.root = root;
     }
     public void setupClasses() {
-        this.pMovement = new PlayerMovement(scene, player.getImageView());
+        this.pMovement = new PlayerMovement(scene, player);
         this.level = levelHandler.createNewLevel(scene);
     }
-    
+    public Level getLevel(){
+        return this.level;
+    }
+    public int getWaves() {
+        return this.waves;
+    }
+    public int getEnemiesInWave() {
+        return this.enemiesInWave;
+    }
 }
