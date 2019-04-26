@@ -44,6 +44,13 @@ mukaan määritellyt tarkistukset voidaan suorittaa komennolla
 mvn jxr:jxr checkstyle:checkstyle
 ```
 Tiedostoa voidaan tarkastella selaimella avaamalla _target/site/checkstyle.html_
+### JavaDoc
+Ohjelman JavaDocia voi tarkastella komennolla
+```
+mvn javadoc:javadoc
+```
+JavaDoc ilmestyy kansioon _target/site/apidocs/_
+
 ### Suoritettavan jarin generointi
 Jar-tiedoston luominen tapahtuu komennolla
 ```
