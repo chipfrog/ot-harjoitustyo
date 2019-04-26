@@ -14,7 +14,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import shooter.GameObjects.Enemies.Enemy;
+import shooter.gameobjects.Enemy;
 import shooter.logic.GameLogic;
 import shooter.logic.Level;
 import shooter.logic.LevelHandler;

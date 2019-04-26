@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package shooter.GameObjects;
+package shooter.gameobjects;
 
 import javafx.scene.image.ImageView;
 

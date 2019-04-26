@@ -5,8 +5,8 @@
  */
 package shooter.logic;
 
-import shooter.GameObjects.Enemies.Enemy;
-import shooter.GameObjects.Bullet;
+import shooter.gameobjects.Enemy;
+import shooter.gameobjects.Bullet;
 import java.util.ArrayList;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -45,7 +45,7 @@ public class GameLogic {
         removeDeadEnemies(enemies, root);
         removeDeadBullets(bullets, root);
         shootBullets(bullets, scene);
-        chasePlayer();
+        checkIfObjectsCollide();
     }
     public void moveToNextLevel() {
         levelHandler.nextLevel();
@@ -55,8 +55,8 @@ public class GameLogic {
         ArrayList<Enemy> enemisToSpawn = level.spawnWave();
         if (enemisToSpawn != null) {
             for (Enemy enemy : enemisToSpawn) {
-            enemies.add(enemy);
-            root.getChildren().add(enemy.getImage());
+                enemies.add(enemy);
+                root.getChildren().add(enemy.getImage());
             }
         }
     }
@@ -84,13 +84,13 @@ public class GameLogic {
     public void shootBullets(ArrayList<Bullet> bullets, Scene scene) {
         for (Bullet bullet : bullets) {
             bullet.fly();
-            bullet.outOfGameArea((int) scene.getWidth(),(int) scene.getHeight());
+            bullet.outOfGameArea((int) scene.getWidth(), (int) scene.getHeight());
         }
     }
-    public void chasePlayer() {
+    public void checkIfObjectsCollide() {
         for (Enemy e : enemies) {
             for (Bullet b : bullets) {
-                if(e.hitDetection(b.getImage())) {
+                if (e.hitDetection(b.getImage())) {
                     e.damageHealth();
                     b.setDead();
                     if (!e.isAlive()) {
@@ -129,7 +129,7 @@ public class GameLogic {
         this.pMovement = new PlayerMovement(scene, player);
         this.level = levelHandler.createNewLevel(scene);
     }
-    public Level getLevel(){
+    public Level getLevel() {
         return this.level;
     }
     public int getWaves() {

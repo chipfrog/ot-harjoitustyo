@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package shooter.GameObjects;
+package shooter.gameobjects;
 
 import javafx.geometry.Point2D;
 import javafx.scene.image.ImageView;
@@ -12,7 +12,7 @@ import javafx.scene.image.ImageView;
  *
  * @author jajuuso
  */
-public class Bullet extends GameObject{
+public class Bullet extends GameObject {
 //    ImageView imageview;
     int damage;
     int hitsBeforeDead;
@@ -68,7 +68,7 @@ public class Bullet extends GameObject{
      * @param height Peliruudun korkeus
      */
     public void outOfGameArea(int width, int height) {
-        if(getShape().getLayoutX() > width || getShape().getLayoutY() > height) {
+        if (getShape().getLayoutX() > width || getShape().getLayoutY() > height) {
             setDead();
         }
     }

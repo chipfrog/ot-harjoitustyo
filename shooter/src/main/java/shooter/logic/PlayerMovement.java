@@ -1,6 +1,6 @@
 package shooter.logic;
 
-import shooter.GameObjects.Bullet;
+import shooter.gameobjects.Bullet;
 import java.util.ArrayList;
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;

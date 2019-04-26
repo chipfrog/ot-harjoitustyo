@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package shooter.GameObjects.Enemies;
+package shooter.gameobjects;
 
 import javafx.geometry.Point2D;
 import javafx.scene.image.ImageView;
-import shooter.GameObjects.Bullet;
-import shooter.GameObjects.GameObject;
+import shooter.gameobjects.Bullet;
+import shooter.gameobjects.GameObject;
 import shooter.logic.Player;
 
 
@@ -16,7 +16,7 @@ import shooter.logic.Player;
  *
  * @author jajuuso
  */
-public class Enemy extends GameObject{
+public class Enemy extends GameObject {
     Point2D location;
     Point2D direction;
     int points;
@@ -69,7 +69,6 @@ public class Enemy extends GameObject{
     public int getDamage() {
         return this.damage;
     }
-
     /**
      *
      * @return

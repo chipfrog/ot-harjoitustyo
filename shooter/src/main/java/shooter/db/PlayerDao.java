@@ -18,7 +18,7 @@ import shooter.logic.Player;
  *
  * @author jajuuso
  */
-public class PlayerDao implements Dao<Player, String>{
+public class PlayerDao implements Dao<Player, String> {
     Database database;
     
     public PlayerDao(Database database) {
@@ -55,14 +55,14 @@ public class PlayerDao implements Dao<Player, String>{
             PreparedStatement statement = connection.prepareStatement("SELECT name, score FROM Leaderboard ORDER BY score DESC;");
             ResultSet rs = statement.executeQuery();
             
-        int i = 1;
-        while (rs.next() == true) {
-            String name = rs.getString(i);
-            int score = rs.getInt(i);
-            Player p = new Player(name, score);
-            list.add(p);
-            i ++;
-        }
+            int i = 1;
+            while (rs.next() == true) {
+                String name = rs.getString(i);
+                int score = rs.getInt(i);
+                Player p = new Player(name, score);
+                list.add(p);
+                i++;
+            }
             
         } catch (SQLException e) {
             System.out.println(e);

@@ -5,7 +5,7 @@
  */
 package shooter.logic;
 
-import shooter.GameObjects.Enemies.Enemy;
+import shooter.gameobjects.Enemy;
 import java.util.ArrayList;
 import java.util.Random;
 import javafx.scene.Scene;
@@ -46,13 +46,13 @@ public class Level {
         if (firstWave) {
             startTime = System.currentTimeMillis();
             firstWave = false;
-            waveCounter ++;
+            waveCounter++;
             return createWave();
         }
         double timeDiff = (System.currentTimeMillis() - startTime) / 1000;
         if (timeDiff > spawnInterval && waveCounter < waves) {
             startTime = System.currentTimeMillis();
-            waveCounter ++;
+            waveCounter++;
             return createWave();
         }
         return null;
@@ -66,9 +66,9 @@ public class Level {
     public int getTotalEnemies() {
         return this.totalEnemies;
     }
-    private ArrayList<Enemy> createWave () {
+    private ArrayList<Enemy> createWave() {
         ArrayList<Enemy> enemies = new ArrayList<>();
-        for (int i = 0; i < enemiesInWave; i ++) {
+        for (int i = 0; i < enemiesInWave; i++) {
             int rx = 0;
             int ry = 0;
             Random randomDistance = new Random();

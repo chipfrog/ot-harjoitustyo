@@ -16,22 +16,21 @@ import java.sql.Statement;
  * @author jajuuso
  */
 public class Database {
-    String URL;
+    String url;
     
-    public Database(String URL) {
-        this.URL = URL;
+    public Database(String url) {
+        this.url = url;
     }
     public void createDatabase() {
         try {
             Connection conn = getConnection();
             conn.prepareStatement("CREATE TABLE IF NOT EXISTS Leaderboard (name varchar(16), score integer, PRIMARY KEY(name));").executeUpdate();
-        }
-        catch(SQLException e) {
+        } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
-    public Connection getConnection () throws SQLException{
-        Connection conn = DriverManager.getConnection(URL);
+    public Connection getConnection() throws SQLException {
+        Connection conn = DriverManager.getConnection(url);
         return conn;
     }
     

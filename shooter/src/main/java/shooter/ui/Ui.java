@@ -67,7 +67,7 @@ public class Ui extends Application{
             newGame();
         });
         leaderboard.setOnAction(event -> {
-            showScoreboard();
+           
         });
         exitButton.setOnAction(event -> {
             stage.close();

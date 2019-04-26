@@ -15,7 +15,7 @@ import java.util.List;
  * @param <T>
  * @param <K>
  */
-public interface Dao<T,K> {
+public interface Dao<T, K> {
     void addPlayer(T object) throws SQLException;
     void updateBestScore(T object) throws SQLException;
     boolean contains(T object) throws SQLException;

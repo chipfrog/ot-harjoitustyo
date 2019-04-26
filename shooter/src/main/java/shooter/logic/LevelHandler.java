@@ -31,13 +31,12 @@ public class LevelHandler {
         } else {
             waves += 1;
             enemiesInWave += 1;
-            
         }
         Level level = new Level(levelNumber, waves, enemiesInWave, spawnInterval, scene);
         return level;
     }
     public void nextLevel() {
-        levelNumber ++;
+        levelNumber++;
     }
     
     
