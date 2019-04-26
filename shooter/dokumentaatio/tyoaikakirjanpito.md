@@ -15,4 +15,5 @@
 |16.4.  | 3     | Ajastimen ym. testailua, refaktorointia |
 |19.4.  | 4     | Sovelluslogiikan suurempaa eriyttämistä käyttöliittymälogiikasta |
 |22.4.  | 5     | Tasolta toiselle siirtyminen |
-|Yht.   | 44    | |
+|26.4.  | 5     | Koodin siistimistä, turhien luokkien karsimista, testien kehittämistä |
+|Yht.   | 49    | |
