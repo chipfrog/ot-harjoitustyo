@@ -16,4 +16,6 @@
 |19.4.  | 4     | Sovelluslogiikan suurempaa eriyttämistä käyttöliittymälogiikasta |
 |22.4.  | 5     | Tasolta toiselle siirtyminen |
 |26.4.  | 5     | Koodin siistimistä, turhien luokkien karsimista, testien kehittämistä |
-|Yht.   | 49    | |
+|2.5.   | 3     | Testikattavuuden kasvattamista |
+|3.5.   | 4     | Turhien luokkien poisto, koodin siistiminen, JavaDocien kirjoittelu |
+|Yht.   | 56    | |
