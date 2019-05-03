@@ -44,14 +44,21 @@ Pelihahmolle täytyy antaa 4-15 merkin mittainen nimi. Jos nimi löytyy jo tieto
 
 <img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/newgame.png">
 
-## Leaderboard
-Valitsemalla aloitusnäytöltä _Leaderboard_ päästään tarkastelemaan pelaajien pistetuloksia. Tuloksia voidaan järjestää nimen mukaan aakkosjärjestyksessä klikkaamalla kohtaa _Name_ ja pisteiden mukaan klikkaamalla _Score_. Aluksi taulukko on järjestetty pistetulosten mukaan suurimmasta pienimpään. _Back_ -napista päästään takaisin aloitusnäyttöön ja _Delete_ napista voidaan tyhjentää tietokanta. Tyhjentämisen vaikutus näkyy vasta, kun leaderboard näkymästä poistutaan ja tullaan siihen takaisin. Tyhjentämistä ei voi perua. 
+## Pelinäkymä
+Pelinäkymä aukeaa koko ruudun tilaan, josta päästään tarvittaessa pois _Esc_:llä. 
 
-<img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/leaderboard.png">
+<img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/gameplay.png">
 
 ## Kontrollit
 Pelihahmo liikkuu eri ilmansuuntiin W,A,S ja D-näppäimillä ja juokseminen tapahtuu
 pitämällä SHIFT-näppäintä pohjassa. Klikkaamalla hiirtä pelaaja voi ampua kursorin osoittamaan suuntaan.  
 
 ## Pelin kulku
-Hirviöt liikkuvat kohti pelaajaa ja pelaajan tehtävänä on ampua ne. Jos hirviö osuu pelaajaan, pelaajan hp laskee. Osuman jälkeen on 2 sekunin aikaikkuna, jolloin peli ei rekisteröi uusia osumia pelaajaan. Mikäli pelaajaan osutaan liian monta kertaa pelin häviää. Jos pelaaja onnistuu ampumaan kaikki tason hirviöt, seuraavalle tasolle voi siirtyä klikkaamalla _Next level!_-nappia tai lopettaa pelin klikkaamalla Quit game-nappia. 
+Hirviöt liikkuvat kohti pelaajaa ja pelaajan tehtävänä on ampua ne. Jos hirviö osuu pelaajaan, pelaajan hp laskee. Osuman jälkeen on 2 sekunin aikaikkuna, jolloin peli ei rekisteröi uusia osumia pelaajaan. Mikäli pelaajaan osutaan liian monta kertaa ja hp laskee nollaan pelin häviää. Jos pelaaja onnistuu ampumaan kaikki tason hirviöt, seuraavalle tasolle voi siirtyä klikkaamalla _Next level!_-nappia tai lopettaa pelin klikkaamalla _Quit game_ -nappia. _Quit game_ palauttaa käyttäjän takaisin aloitusnäyttöön.
+
+<img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/nextlevel.png">
+
+## Leaderboard
+Valitsemalla aloitusnäytöltä _Leaderboard_ päästään tarkastelemaan pelaajien pistetuloksia. Tuloksia voidaan järjestää nimen mukaan aakkosjärjestyksessä klikkaamalla kohtaa _Name_ ja pisteiden mukaan klikkaamalla _Score_. Aluksi taulukko on järjestetty pistetulosten mukaan suurimmasta pienimpään. _Back_ -napista päästään takaisin aloitusnäyttöön ja _Delete_ napista voidaan tyhjentää tietokanta. Tyhjentämisen vaikutus näkyy vasta, kun leaderboard näkymästä poistutaan ja tullaan siihen takaisin. Tyhjentämistä ei voi perua. 
+
+<img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/leaderboard.png">
