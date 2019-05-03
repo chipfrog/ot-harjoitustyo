@@ -5,6 +5,7 @@
  */
 
 import java.util.ArrayList;
+import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -14,6 +15,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import shooter.gameobjects.Bullet;
 import shooter.gameobjects.Enemy;
 import shooter.logic.GameLogic;
 import shooter.logic.Level;
@@ -59,10 +61,50 @@ public class GameLogicTest {
         gamelogic.getLevel().defeatEnemies(defeatedEnemies);
         assertTrue(gamelogic.stopGame() == true);
     }
+    @Test
+    public void deadEnemyRemoveWorks() {
+        ArrayList<Enemy> enemies = new ArrayList<>();
+        for (int i = 0; i < 5; i ++) {
+           enemies.add(new Enemy(new ImageView("chick.png"), 1, 1, 1, 1, 1, 1)); 
+        }
+        Enemy deadEnemy1 = new Enemy(new ImageView("chick.png"), 1, 1, 1, 1, 1, 1);
+        deadEnemy1.setDead();
+        enemies.add(deadEnemy1);
+        
+        assertTrue(enemies.size() == 6);
+        gamelogic.removeDeadEnemies(enemies, pane);
+        assertTrue(enemies.size() == 5);
+    }
+    @Test
+    public void deadBulletRemoveWorks() {
+        ArrayList<Bullet> bullets = new ArrayList<>();
+        for (int i = 0; i < 5; i ++) {
+            bullets.add(new Bullet(new ImageView("fireball.png"), 2, Point2D.ZERO, Point2D.ZERO));
+        }
+        Bullet deadBullet = new Bullet(new ImageView("fireball.png"), 2, Point2D.ZERO, Point2D.ZERO);
+        deadBullet.setDead();
+        bullets.add(deadBullet);
+        
+        assertTrue(bullets.size() == 6);
+        gamelogic.removeDeadBullets(bullets, pane);
+        assertTrue(bullets.size() == 5);
+    }
+    @Test
+    public void addingAssetsToRightLocationInPaneWorks() {
+        gamelogic.addAssetsToPane();
+        assertTrue(player.getImageView().getLayoutX() == 600 && player.getImageView().getLayoutY() == 300);
+    }
+    @Test
+    public void hitDetectionWorks() {
+        Enemy enemyTouch = new Enemy(new ImageView("chick.png"), 2, 2, 2, 2, 10, 10);
+        Bullet bullet = new Bullet(new ImageView("fireball.png"), 2, new Point2D(10, 10), new Point2D(20, 20));
+        Enemy enemyNotTouch = new Enemy(new ImageView("chick.png"), 2, 2, 2, 2, 100, 100);
+        pane.getChildren().addAll(enemyTouch.getImage(), enemyNotTouch.getImage(), bullet.getShape());
+        bullet.fly();
+        enemyNotTouch.chasePlayer(Point2D.ZERO);
+        assertTrue(enemyTouch.hitDetection(bullet.getImage()) == true);
+        assertTrue(enemyNotTouch.hitDetection(bullet.getImage()) == false);
+    }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+   
 }

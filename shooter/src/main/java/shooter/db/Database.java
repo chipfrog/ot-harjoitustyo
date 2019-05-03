@@ -7,20 +7,27 @@ package shooter.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
- *
+ * Luokka SQL-tietokantataulun luomiseen ja siihen yhteyden ottamiseen.
+ * 
  * @author jajuuso
  */
 public class Database {
     String url;
     
+    /**
+     * 
+     * @param url Osoite käytettävään/luotavaan tietokantatauluun
+     */
     public Database(String url) {
         this.url = url;
     }
+
+    /**
+     * Luo Leaderboard-tietokantataulun, mikäli sitä ei ennestään ole olemassa.
+     */
     public void createDatabase() {
         try {
             Connection conn = getConnection();
@@ -29,6 +36,12 @@ public class Database {
             System.out.println("Error: " + e.getMessage());
         }
     }
+
+    /**
+     * Muodostaa yhteyden tietokantaan.
+     * @return yhteys
+     * @throws SQLException
+     */
     public Connection getConnection() throws SQLException {
         Connection conn = DriverManager.getConnection(url);
         return conn;

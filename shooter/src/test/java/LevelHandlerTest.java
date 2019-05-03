@@ -39,17 +39,9 @@ public class LevelHandlerTest {
     }
     @Test
     public void enemyNumberIncreasesInNextLevel() {
-        levelhandler.nextLevel();
+        levelhandler.increaseLevelNumber();
         Level level = levelhandler.createNewLevel(scene);
-        
         assertTrue(level.getTotalEnemies() == 18);
     }
     
-    
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }

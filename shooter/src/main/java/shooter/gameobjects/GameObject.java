@@ -19,7 +19,7 @@ public class GameObject {
     ImageView imageview;
     
     /**
-     * Luo uuden GameObjectin. GameObject on Enemy:n ja Bullet:in yläluokka. 
+     * Luo uuden GameObjectin. GameObject on Enemy- ja Bullet-luokkien yläluokka. 
      * @param imageview GameObjectin kuva
      * @param speed GameObjectin nopeus
      */
@@ -30,7 +30,7 @@ public class GameObject {
     }
 
     /**
-     * Asettaa GameObjectin tilan kuolleeksi (alive = false). Kuolleet objektit poistetaan pelistä.
+     * Asettaa GameObjectin tilan kuolleeksi (alive = false). (Kuolleet objektit poistetaan pelistä GameLogic-luokan metodeilla removeDeadBullets ja removeDeadEnemies.)
      */
     public void setDead() {
         this.alive = false;
@@ -38,23 +38,23 @@ public class GameObject {
 
     /**
      * Kertoo onko GameOject elossa, eli voiko sen poistaa pelistä vai ei.
-     * @return Kertoo onko GameObject elossa.
+     * @return Onko GameObject elossa vai ei.
      */
     public boolean isAlive() {
         return this.alive;
     }
 
     /**
-     *
-     * @return
+     * Palauttaa nopeuden.
+     * @return nopeus
      */
     public double getSpeed() {
         return this.speed;
     }
 
     /**
-     *
-     * @return
+     * Palauttaa ImageView:n
+     * @return kuva
      */
     public ImageView getImage() {
         return this.imageview;
@@ -62,6 +62,7 @@ public class GameObject {
 
     /**
      * Kertoo osuuko pelihahmon kuva toisen pelihahmon kuvaan. Esim. osuuko ammus viholliseen tai vihollinen pelaajaan.
+     * @param otherImage
      * @return Osuvatko hahmojen kuvat toisiinsa.
      */
     public boolean hitDetection(ImageView otherImage) {

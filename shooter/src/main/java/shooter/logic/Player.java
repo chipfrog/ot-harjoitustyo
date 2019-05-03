@@ -34,21 +34,20 @@ public class Player {
         this.hp = 50;
         this.canBeHit = true;
         this.alive = true;
-        this.score = 0;
+        this.score = score;
         this.imageview = new ImageView("velho.png");
         
     }
-
     /**
-     *
-     * @return
+     * Palauttaa pelaajan hp:n.
+     * @return hitpoints
      */
     public int getHp() {
         return this.hp;
     }
     /**
-     *
-     * @return
+     * Palauttaa pelaajan maksimiHp:n
+     * @return max hitpoints
      */
     public int getMaxHp() {
         return this.maxhp;
@@ -71,8 +70,8 @@ public class Player {
     }
 
     /**
-     *
-     * @return
+     * Palauttaa pelaajan nimen
+     * @return nimi
      */
     public String getName() {
         return this.name;
@@ -100,16 +99,16 @@ public class Player {
     }
 
     /**
-     *
-     * @return
+     * Kertoo onko pelaaja elossa.
+     * @return true/false; elossa
      */
     public boolean alive() {
         return this.alive;
     }
 
     /**
-     *
-     * @return
+     * Palauttaa pelaajan pistemäärän.
+     * @return pistemäärä (int)
      */
     public int getScore() {
         return this.score;
@@ -124,8 +123,8 @@ public class Player {
     }
     
     /**
-     *
-     * @return
+     * Palauttaa pelihahmon kuvan.
+     * @return pelihahmon kuva
      */
     public ImageView getImageView() {
         return this.imageview;

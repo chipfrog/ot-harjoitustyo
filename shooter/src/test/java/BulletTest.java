@@ -14,6 +14,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.testfx.framework.junit.ApplicationTest;
 import shooter.gameobjects.Bullet;
+import shooter.gameobjects.Enemy;
 
 
 /**
@@ -73,6 +74,7 @@ public class BulletTest extends ApplicationTest{
         bullet.outOfGameArea(sceneWidth, sceneHeight);
         assertTrue(bullet.isAlive() == true);
     }
+    
     
    
 

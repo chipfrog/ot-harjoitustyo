@@ -9,9 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 import shooter.logic.Player;
 
 /**
@@ -21,10 +19,19 @@ import shooter.logic.Player;
 public class PlayerDao implements Dao<Player, String> {
     Database database;
     
+    /**
+     *
+     * @param database
+     */
     public PlayerDao(Database database) {
         this.database = database;
     }
 
+    /**
+     * Lisää pelaajan tietokantatauluun (nimi ja pisteet)
+     * @param player player-olio
+     * @throws SQLException
+     */
     @Override
     public void addPlayer(Player player) throws SQLException {
         Connection connection = database.getConnection();
@@ -36,6 +43,12 @@ public class PlayerDao implements Dao<Player, String> {
         connection.close();
         
     }
+
+    /**
+     * Päivittää olemassaolevan pelaajan pistetuloksen.
+     * @param player player-olio
+     * @throws SQLException
+     */
     @Override
     public void updateBestScore(Player player) throws SQLException {
         Connection connection = database.getConnection();
@@ -47,6 +60,10 @@ public class PlayerDao implements Dao<Player, String> {
         connection.close();
     }
 
+    /**
+     * Luo listan kaikista tietokantataulussa olevista pelaajista ja laittaa ne järjestykseen pistemäärän mukaan suurimmasta pienimpään.
+     * @return ArrayList Player-olioista
+     */
     @Override
     public ArrayList<Player> list() {
         ArrayList<Player> list = new ArrayList<>();
@@ -55,14 +72,15 @@ public class PlayerDao implements Dao<Player, String> {
             PreparedStatement statement = connection.prepareStatement("SELECT name, score FROM Leaderboard ORDER BY score DESC;");
             ResultSet rs = statement.executeQuery();
             
-            int i = 1;
             while (rs.next() == true) {
-                String name = rs.getString(i);
-                int score = rs.getInt(i);
+                String name = rs.getString(1);
+                Integer score = rs.getInt(2);
                 Player p = new Player(name, score);
                 list.add(p);
-                i++;
             }
+            rs.close();
+            statement.close();
+            connection.close();
             
         } catch (SQLException e) {
             System.out.println(e);
@@ -71,6 +89,12 @@ public class PlayerDao implements Dao<Player, String> {
         
     }
 
+    /**
+     * Tarkistaa nimen perusteella, onko pelaaja ennestään olemassa tietokantataulussa.
+     * @param player Player-olio
+     * @return true/false
+     * @throws SQLException
+     */
     @Override
     public boolean contains(Player player) throws SQLException {
         Connection connection = database.getConnection();
@@ -91,6 +115,20 @@ public class PlayerDao implements Dao<Player, String> {
         }
         
     }
+
+    /**
+     * Tyhjentää kaiken rividatan tietokantataulusta.
+     * @throws SQLException
+     */
+    @Override
+    public void resetLeaderboard() throws SQLException {
+        Connection connection = database.getConnection();
+        PreparedStatement statement = connection.prepareStatement("DELETE FROM Leaderboard;");
+        statement.executeUpdate();
+        statement.close();
+        connection.close();
+    }
+    
     
     
 

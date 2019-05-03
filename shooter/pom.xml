@@ -94,7 +94,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>shooter.ui.Ui</mainClass>
+                                    <mainClass>shooter.ui.MainMenu</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>

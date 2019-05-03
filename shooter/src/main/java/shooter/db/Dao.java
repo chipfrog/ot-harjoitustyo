@@ -16,8 +16,39 @@ import java.util.List;
  * @param <K>
  */
 public interface Dao<T, K> {
+
+    /**
+     *
+     * @param object
+     * @throws SQLException
+     */
     void addPlayer(T object) throws SQLException;
+
+    /**
+     *
+     * @param object
+     * @throws SQLException
+     */
     void updateBestScore(T object) throws SQLException;
+
+    /**
+     *
+     * @param object
+     * @return
+     * @throws SQLException
+     */
     boolean contains(T object) throws SQLException;
+
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     ArrayList<T> list() throws SQLException;
+
+    /**
+     *
+     * @throws SQLException
+     */
+    void resetLeaderboard() throws SQLException;
 }

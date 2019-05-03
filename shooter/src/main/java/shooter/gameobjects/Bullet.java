@@ -9,7 +9,7 @@ import javafx.geometry.Point2D;
 import javafx.scene.image.ImageView;
 
 /**
- *
+ * Luokka vastaa ammusten liikeradoista, sijainneista yms.
  * @author jajuuso
  */
 public class Bullet extends GameObject {
@@ -34,8 +34,8 @@ public class Bullet extends GameObject {
     }
 
     /**
-     *
-     * @return
+     * Palauttaa ImageView:n (kuvan) ammuksesta.
+     * @return ammuksen ImageView
      */
     public ImageView getShape() {
         return this.imageview;
@@ -53,7 +53,7 @@ public class Bullet extends GameObject {
     }
 
     /**
-     * Laskee kulman, jonka suuntaan ammus lähtee määritellyllä nopeudella (speed).
+     * Laskee kulman, jonka suuntaan ammus lähtee määritellyllä nopeudella (speed).(Suunta määritellään PlayerMovement-luokassa kursorin sijainnin perusteella.)
      */
     public void fly() {
         double angle = Math.atan2(target.getX() - bulletLocation.getX(), target.getY() - bulletLocation.getY());

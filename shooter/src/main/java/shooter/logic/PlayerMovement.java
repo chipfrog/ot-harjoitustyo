@@ -144,8 +144,8 @@ public class PlayerMovement {
     }
 
     /**
-     * 
-     * @return
+     * Palauttaa pelihahmon kuvan keskipisteen x-koordinaatin.
+     * @return pelihahmon keskipisteenn x-koordinaatti
      */
     public double getPlayerCenterX() {
         double x = imageview.getBoundsInLocal().getWidth() / 2;
@@ -153,8 +153,8 @@ public class PlayerMovement {
     }
 
     /**
-     *
-     * @return
+     * Palauttaa pelihahmon kuvan keskipisteen y-koordinaatin.
+     * @return pelihahmon keskipisteen y-koordinaatti
      */
     public double getPlayerCenterY() {
         double y = imageview.getBoundsInLocal().getHeight() / 2;

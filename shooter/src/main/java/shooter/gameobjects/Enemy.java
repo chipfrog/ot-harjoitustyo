@@ -13,7 +13,7 @@ import shooter.logic.Player;
 
 
 /**
- *
+ * Luokka sisältää pelin vihollisten toimintoihin, kuten liikkumiseen ja sijaintiin liittyvät metodit.
  * @author jajuuso
  */
 public class Enemy extends GameObject {
@@ -31,8 +31,8 @@ public class Enemy extends GameObject {
      * @param hp Vihollisen hitpointsit, eli montako osumaa vihollinen kestää ennen kuolemista.
      * @param points Vihollisen tappamisesta pelaajalle annetut pisteet
      * @param damage Vahinko, jonka vihollinen aiheuttaa osuessaan pelaajaa. Tämä määrä vähennetään pelaajan hp:sta.
-     * @param x Vihollisen sijainnin x-koordinaatti
-     * @param y Vihollisen sijainnin y-koordinaatti
+     * @param x Vihollisen sijainnin x-koordinaatti (käytetään Point2D-vektorin luomiseen)
+     * @param y Vihollisen sijainnin y-koordinaatti (käytetään Point2D-vektorin luomiseen)
      */
     public Enemy(ImageView imageview, double speed, int hp, int points, int damage, double x, double y) {
         super(imageview, speed);
@@ -55,31 +55,31 @@ public class Enemy extends GameObject {
     }
 
     /**
-     *
-     * @return
+     * Palauttaa kyseisen vihollisen tuhoamisesta annettavan pistemäärän.
+     * @return annetteavat pisteet
      */
     public int givePoints() {
         return this.points;
     }
 
     /**
-     *
-     * @return
+     * Palauttaa vihollisen pelaajalle aiheuttaman hp-vahingon.
+     * @return aiheutettu hp-vahinko
      */
     public int getDamage() {
         return this.damage;
     }
     /**
-     *
-     * @return
+     * Palauttaa vihollisen hp:n.
+     * @return vihollisen hp
      */
     public int getHp() {
         return this.hp;
     }
 
     /**
-     *
-     * @return
+     * Palauttaa vihollisen sijainnin Point2D-vektorina
+     * @return sijainti Point2D-vektorina
      */
     public Point2D getLocation() {
         return this.location;
