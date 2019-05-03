@@ -35,7 +35,20 @@ Ohjelman voi käynnistää tuplaklikkaamalla tiedostoa _Shooter.jar_, jos viikon
 java -jar Shooter.jar
 ```
 ## Aloitusnäyttö
-Sovelluskäynnistyy aloitusnäyttöön 
+Sovellus käynnistyy seuraavaan aloitusnäyttöön. Painamalla _New Game_ päästään antamaan pelaajalle nimi ja aloittamaan uusi peli.
+
+<img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/mainmenu.png">
+
+## Pelihahmon luominen
+Pelihahmolle täytyy antaa 4-15 merkin mittainen nimi. Jos nimi löytyy jo tietokannasta, uutta pistetulosta ei tallennetta kyseiselle nimelle, ellei se ole aiempaa tulosta korkeampi. Peli aloitetaan painamalla _Start!_
+
+<img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/newgame.png">
+
+## Leaderboard
+Valitsemalla aloitusnäytöltä _Leaderboard_ päästään tarkastelemaan pelaajien pistetuloksia. Tuloksia voidaan järjestää nimen mukaan aakkosjärjestyksessä klikkaamalla kohtaa _Name_ ja pisteiden mukaan klikkaamalla _Score_. Aluksi taulukko on järjestetty pistetulosten mukaan suurimmasta pienimpään. _Back_ -napista päästään takaisin aloitusnäyttöön ja _Delete_ napista voidaan tyhjentää tietokanta. Tyhjentämisen vaikutus näkyy vasta, kun leaderboard näkymästä poistutaan ja tullaan siihen takaisin. Tyhjentämistä ei voi perua. 
+
+<img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/leaderboard.png">
+
 ## Kontrollit
 Pelihahmo liikkuu eri ilmansuuntiin W,A,S ja D-näppäimillä ja juokseminen tapahtuu
 pitämällä SHIFT-näppäintä pohjassa. Klikkaamalla hiirtä pelaaja voi ampua kursorin osoittamaan suuntaan.  
