@@ -54,11 +54,6 @@ public class LevelTest extends ApplicationTest{
     public void firstSpawnedWaveIsCorrectSize() {
         assertTrue(level.spawnWave().size() == 5);
     }
-//    @Test
-//    public void enemynumberIncreasesInTheNextWave() {
-//        level.spawnWave();
-//        assertTrue(level.spawnWave().size() == 6);
-//    }
     @Test
     public void newWaveDoesNotSpawnIfEnoughTimeHasNotPassed() {
         Level level2 = new Level(2, 5, 10, 100, scene);

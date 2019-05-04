@@ -15,7 +15,7 @@ import shooter.logic.GameLogic;
 import shooter.logic.Player;
 
 /**
- *
+ * Luokka vastaa pelinäkymien vaihtamisesta; esim. päävalikosta leaderboardiin jne.
  * @author jajuuso
  */
 public class SceneSwitcher {

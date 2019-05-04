@@ -16,8 +16,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import shooter.db.Database;
-import shooter.db.PlayerDao;
 import shooter.logic.Player;
 
 /**

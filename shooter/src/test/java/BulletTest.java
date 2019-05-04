@@ -45,12 +45,6 @@ public class BulletTest extends ApplicationTest{
         assertTrue(bullet.isAlive() == false);
     }
     @Test
-    public void bulletFliesTowardsTarget() {
-        bullet.fly();
-    }
-    
-    
-    @Test
     public void bulletDiesIfOutOfSceneWidth() {
         bullet.getShape().relocate(sceneWidth + 300 , 30);
         bullet.outOfGameArea(sceneWidth, sceneHeight);

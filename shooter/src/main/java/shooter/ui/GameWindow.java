@@ -16,7 +16,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import shooter.db.Database;
 import shooter.db.PlayerDao;
 import shooter.filehandling.ConfigFileReader;
 import shooter.logic.GameLogic;
