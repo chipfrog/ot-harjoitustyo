@@ -42,6 +42,7 @@ Käyttöliittymä tulee koostumaan ainakin kolmesta ruudusta. Alla esimerkki:
   - Pisteet näyttävä  mittari, joka kertoo pelaajan yhteispisteet kyseiseltä pelikerralta
 
 ## Jatkokehitysmahdollisuuksia
+- _config.properties_ -tiedostoon voisi lisätä kohdat, joilla pelihahmon, luotien ja vihollisten nopeutta voisi säätää
 - Mahdollisuus ostaa saaduilla pisteillä uusia aseita tai palauttaa pelaajan menettämiä hit pointseja
 - Mahdollisuus poimia kentältä pelaajalle hyödyllisiä esineitä, kuten aseita tai potioneita. Nämä ilmestyvät satunnaisiin       paikkoihin
 - Pelin voi tallentaa ja jatkaa siitä mihin viimeksi jäi
