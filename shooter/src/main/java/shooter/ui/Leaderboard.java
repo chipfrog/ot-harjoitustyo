@@ -6,25 +6,18 @@
 package shooter.ui;
 
 import java.util.ArrayList;
-import javafx.application.Application;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import shooter.db.Database;
 import shooter.db.PlayerDao;
-import shooter.logic.GameLogic;
 import shooter.logic.Player;
 
 /**
@@ -33,26 +26,10 @@ import shooter.logic.Player;
  */
 public class Leaderboard extends SceneSwitcher{
     Stage stage;
-    Scene previousScene;
-    GameLogic logic;
     
-    /**
-     *
-     * @param database
-     * @param playerDao
-     * @param stage
-     * @param previousScene
-     */
-    public Leaderboard (Database database, PlayerDao playerDao, Stage stage, Scene previousScene) {
+    public Leaderboard (Stage stage) {
         this.stage = stage;
-        this.previousScene = previousScene;
-        
     }
-
-    /**
-     *
-     * @return
-     */
     public Scene openLeaderboard() {
         ArrayList<Player> list = playerDao.list();
         Button deleteAll = new Button("Delete");
@@ -85,7 +62,6 @@ public class Leaderboard extends SceneSwitcher{
         
         back.setOnAction(event -> {
             mainMenu(stage);
-//            stage.setScene(previousScene);
         });
         
         Scene scene = new Scene(allItems);

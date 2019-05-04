@@ -21,9 +21,6 @@ import javafx.stage.Stage;
 public class MainMenu extends Application{
     SceneSwitcher sceneSwitcher;
 
-    /**
-     *
-     */
     public MainMenu() {
         this.sceneSwitcher = new SceneSwitcher();
     }
@@ -49,17 +46,12 @@ public class MainMenu extends Application{
             sceneSwitcher.newGame(stage);
         });
         leaderboard.setOnAction(event -> {
-            sceneSwitcher.leaderboard(stage, scene);
+            sceneSwitcher.leaderboard(stage);
         });
         exitButton.setOnAction(event -> {
             stage.close();
         });
     }
-
-    /**
-     *
-     * @param args
-     */
     public static void main(String[] args) {
         launch(args);
     }

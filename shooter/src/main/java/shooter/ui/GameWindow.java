@@ -23,7 +23,7 @@ import shooter.logic.GameLogic;
 import shooter.logic.Player;
 
 /**
- * Peli-ikkuna, jossa pelin reaaliaikainen toiminnallisuus tapahtuu.
+ *
  * @author jajuuso
  */
 public class GameWindow extends SceneSwitcher{
@@ -33,15 +33,7 @@ public class GameWindow extends SceneSwitcher{
     GameLogic logic;
     Stage stage;
     
-    /**
-     *
-     * @param database
-     * @param playerDao
-     * @param player
-     * @param logic
-     * @param stage
-     */
-    public GameWindow(Database database, PlayerDao playerDao, Player player, GameLogic logic, Stage stage) {
+    public GameWindow(PlayerDao playerDao, Player player, GameLogic logic, Stage stage) {
         this.width = ConfigFileReader.getInt("width");
         this.height = ConfigFileReader.getInt("height");
         this.player = player;
@@ -49,11 +41,6 @@ public class GameWindow extends SceneSwitcher{
         this.stage = stage;
         
     }
-
-    /**
-     *
-     * @return
-     */
     public Scene gameScreen() {
         stage.setResizable(true);
         Pane root = new Pane();

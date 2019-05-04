@@ -23,18 +23,9 @@ import shooter.logic.Player;
  */
 public class PlayerCreation extends SceneSwitcher{
     
-    /**
-     *
-     */
     public  PlayerCreation() {
         
     }
-
-    /**
-     *
-     * @param stage
-     * @return
-     */
     public Scene openPlayerCreation(Stage stage) {
         HBox hbox = new HBox();
         VBox vbox = new VBox();
