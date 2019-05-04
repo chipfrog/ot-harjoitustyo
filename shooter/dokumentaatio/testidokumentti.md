@@ -21,3 +21,7 @@ Tietokannan ja Dao:n automatisoitu puuttuu kokonaan, mutta tietokannan toimivuut
 
 Suoritettiin manuaalisesti. Toimintaa testattiin asennusohjeiden mukaisesti kahdella windows-koneella ja kahdessa Linux-ympäristössä, siten että config.properties -tiedosto on
 luotu ohjeiden mukaan pelin käynnistyskansioon. 
+
+## Testauksessa havaittuja ongelmia
+
+Testikattavuus jäi haluttua pienemmäksi ja laajempia integraatiotestejä olisi voinut tehdä enemmän. Myös tietokannan automatisoitu testaaminen jäi tekemättä. Yksi havaittu konkreettinen ongelma on, kun käyttäjä poistuu kokoruudun pelitilasta _Esc_:llä, niin seuraavien näkymien kokoasetukset menevät hetkeksi sekaisin. Pelin päivitysnopeus myös vaihtelee suuresti eri alustoilla. Selkein ero Windows- ja Linux-ympäristön välillä. Tämän voisi korjata antamalla mahdollisuuden muokata peliobjektien nopeutta _config.properties_ -tiedostossa tai käyttämällä pelianimaatiossa jotain toista toteutusta kuin _AnimationTimeria_.  
