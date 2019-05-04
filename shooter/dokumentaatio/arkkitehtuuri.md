@@ -26,11 +26,11 @@ _Player_ -luokka sisältää pelaajan attribuutit ja tietokantaan tallennettavat
 
 ## Tietojen tallennus
 
-Pakkauksen _shooter.db_ luokat _Database_, _Dao_ ja _PlayerDao_ vastaavat tietojen pysyväistallennuksesta tietokantaan. _Database_ -luokalla luodaan uusi tietokantataulu, mikäli sellaista ei ole olemassa ja muodostetaan tauluun yhteys. _Dao_ toimii rajapintana _PlayerDao_ -luokalle, jossa määritellään tarkemmin metodit tietokannan käsittelyyn. Suunnittelu noudattaa Data Access Object-mallia. Tietokantajärjestelmänä käytetään SQLiteä. 
+Pakkauksen _shooter.db_ luokat _Database_, _Dao_ ja _PlayerDao_ vastaavat tietojen pysyväistallennuksesta tietokantaan. _Database_ -luokalla luodaan uusi tietokantataulu, mikäli sellaista ei ole olemassa ja muodostetaan tauluun yhteys. _Dao_ toimii rajapintana _PlayerDao_ -luokalle, jossa määritellään tarkemmin metodit tietokannan käsittelyyn. Sen kautta voidaan tallentaa, muokata, listata ja poistaa tietoa tietokannasta. _PlayerDaon_ metodeja käytetään pelin päättyessä tuloksen tallentamiseen _GameWindow_ luokassa ja tulosten listaamiseen _leaderboard_ luokassa. Tietokantajärjestelmänä käytetään SQLiteä. 
 
 ## Kongfigurointi 
 
-
+Peliasetusten konfigurointiin käytetään luokaa _ConfigFileReader_, joka lukee config.properties -tiedostosta halutut tiedot esim. näytön resoluution. Lisäksi config.propertiesia muokkaamalla voidaan vaikuttaa pelin vaikeuteen mm. kasvattamalla ilmestyvien vihollisten määrää ja ilmestymistiheyttä. Myös käytettävän tietokannan nimi voidaan vaihtaa tiedostossa.
 
 ### Luokkakaavio
 <img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/kaavio.png">
