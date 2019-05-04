@@ -11,6 +11,8 @@ Kyseess채 on 2D-peli, jossa tarkoituksena on ker채t채 pisteit채 ampumalla hirvi�
 
 [Arkkitehtuuri](https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/arkkitehtuuri.md)
 
+[Testausdokumentti](https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/testidokumentti.md)
+
 ## Releaset
 [Viikko 6](https://github.com/chipfrog/ot-harjoitustyo/releases/tag/viikko6)
 
@@ -37,7 +39,7 @@ Raportin saa auki selaimella avaamalla tiedosto _target/site/jacoco/index.html_
 
 Sovellus voidaan k채ynnist채채 komennolla
 ```
-mvn compile exec:java -Dexec.mainClass=shooter.ui.Ui
+mvn compile exec:java -Dexec.mainClass=shooter.ui.MainMenu
 ```
 ### Checkstyle
 Tiedoston [checkstyle.xml](https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/checkstyle.xml)
