@@ -38,3 +38,7 @@ Peliasetusten konfigurointiin käytetään luokaa _ConfigFileReader_, joka lukee
 ### Sekvenssikaavio
 <img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/sekvenssikaavio.png">
 Kuvassa tilanne, jossa pelaajan ammus osuu hirviöön ensimmäisen kerran ja antaa pelaajalle pisteen.
+
+## Ohjelman rakenteen ongelmia
+
+Ohjelma sisältää paikoin hieman toisteista koodia. Esimerkiksi kuolleita ammuksia ja vihollisia poistavat metodit ovat miltei identtiset. Poistometodissa olisi sen sijaan voinut käyttää em. luokkien yhteistä yläluokkaa _GameObject_. Lisäksi _GameLogic_ luokka vaatii oikein toimiakseen erilaisia toisten luokkien alustusmetodeja _GameWindow_ -luokassa. Tämän olisi voinut hoitaa hieman siistimminkin. 
