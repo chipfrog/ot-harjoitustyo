@@ -33,7 +33,7 @@ Pakkauksen _shooter.db_ luokat _Database_, _Dao_ ja _PlayerDao_ vastaavat tietoj
 
 
 ### Luokkakaavio
-<img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/kansiorakenne.png">
+<img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/kaavio.png">
 
 ### Sekvenssikaavio
 <img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/sekvenssikaavio.png">
