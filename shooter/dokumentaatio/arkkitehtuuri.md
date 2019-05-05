@@ -34,8 +34,13 @@ Peliasetusten konfigurointiin käytetään luokaa _ConfigFileReader_, joka lukee
 <img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/kaavio.png">
 
 ### Sekvenssikaavioita
+<img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/addNewPlayer.png">
+Uuden pelaajan luominen ja tallentaminen tietokantaan pelin häviämisen jälkeen.
+
+
 <img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/bulletPath.png">
 Kuvassa tilanne, jossa pelaajan ammus osuu viholliseen ja antaa pelaajalle pisteen.
+
 
 <img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/leaderboardReset.png">
 Päävalikosta siirtyminen leaderboardiin, sen tyhjennys ja paluu päävalikkoon.
