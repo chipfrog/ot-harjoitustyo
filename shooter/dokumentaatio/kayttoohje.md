@@ -31,7 +31,7 @@ _wavesIncreaseBy_ kertoo kuinka monella vihollisaallolla seuraavan tason aaltoje
 
 
 ## Ohjelman käynnistäminen
-Ohjelman voi käynnistää tuplaklikkaamalla tiedostoa _Shooter.jar_, jos viikon 7 Release:n jar-tiedosto on ladattu. Voi olla, että aluksi asetuksista täytyy antaa lupa sovelluksen suorittamiselle. Käynnistäminen onnistuu myös komennolla
+Käynnistäminen onnistuu komennolla
 ```
 java -jar Shooter.jar
 ```
