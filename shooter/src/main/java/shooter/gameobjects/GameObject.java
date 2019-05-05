@@ -7,8 +7,6 @@ package shooter.gameobjects;
 
 import javafx.scene.image.ImageView;
 
-
-
 /**
  *
  * @author jajuuso

@@ -7,10 +7,6 @@ package shooter.gameobjects;
 
 import javafx.geometry.Point2D;
 import javafx.scene.image.ImageView;
-import shooter.gameobjects.Bullet;
-import shooter.gameobjects.GameObject;
-import shooter.logic.Player;
-
 
 /**
  * Luokka sisältää pelin vihollisten toimintoihin, kuten liikkumiseen ja sijaintiin liittyvät metodit.

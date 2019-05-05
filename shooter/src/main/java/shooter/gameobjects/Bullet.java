@@ -13,7 +13,6 @@ import javafx.scene.image.ImageView;
  * @author jajuuso
  */
 public class Bullet extends GameObject {
-//    ImageView imageview;
     int damage;
     int hitsBeforeDead;
     Point2D bulletLocation;
@@ -28,7 +27,6 @@ public class Bullet extends GameObject {
      */
     public Bullet(ImageView imageview, double speed, Point2D bulletLocation, Point2D target) {
         super(imageview, speed);
-
         this.target = target;
         this.bulletLocation = bulletLocation;
     }

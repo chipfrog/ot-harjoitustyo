@@ -6,7 +6,6 @@
 package shooter.ui;
 
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import shooter.db.Database;
 import shooter.db.PlayerDao;
