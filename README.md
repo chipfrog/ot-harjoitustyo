@@ -14,7 +14,7 @@ Kyseessä on 2D-peli, jossa tarkoituksena on kerätä pisteitä ampumalla hirvi�
 [Testausdokumentti](https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/testidokumentti.md)
 
 ## Releaset
-[Viikko 7](https://github.com/chipfrog/ot-harjoitustyo/releases/tag/viikko7)
+[Loppupalautus](https://github.com/chipfrog/ot-harjoitustyo/releases/tag/viikko7)
 
 [Viikko 6](https://github.com/chipfrog/ot-harjoitustyo/releases/tag/viikko6)
 
