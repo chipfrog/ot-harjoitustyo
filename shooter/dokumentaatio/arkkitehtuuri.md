@@ -36,8 +36,8 @@ Peliasetusten konfigurointiin käytetään luokaa _ConfigFileReader_, joka lukee
 <img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/kaavio.png">
 
 ### Sekvenssikaavio
-<img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/sekvenssikaavio.png">
-Kuvassa tilanne, jossa pelaajan ammus osuu hirviöön ensimmäisen kerran ja antaa pelaajalle pisteen.
+<img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/bulletPath.png">
+Kuvassa tilanne, jossa pelaajan ammus osuu viholliseen ja antaa pelaajalle pisteen.
 
 ## Ohjelman rakenteen ongelmia
 
