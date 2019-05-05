@@ -13,6 +13,8 @@ Kyseess채 on 2D-peli, jossa tarkoituksena on ker채t채 pisteit채 ampumalla hirvi�
 
 [Testausdokumentti](https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/testidokumentti.md)
 
+[Peliss채 k채ytetyt grafiikat](https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/KaytetytGrafiikat.md)
+
 ## Releaset
 [Loppupalautus](https://github.com/chipfrog/ot-harjoitustyo/releases/tag/viikko7)
 
