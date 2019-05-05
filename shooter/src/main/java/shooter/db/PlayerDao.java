@@ -45,16 +45,17 @@ public class PlayerDao implements Dao<Player, String> {
     }
 
     /**
-     * Päivittää olemassaolevan pelaajan pistetuloksen.
+     * Päivittää olemassaolevan pelaajan pistetuloksen, jos se on suurempi kuin vanha tulos.
      * @param player player-olio
      * @throws SQLException
      */
     @Override
     public void updateBestScore(Player player) throws SQLException {
         Connection connection = database.getConnection();
-        PreparedStatement statement = connection.prepareStatement("UPDATE Leaderboard SET score = ? WHERE name = ?;");
+        PreparedStatement statement = connection.prepareStatement("UPDATE Leaderboard SET score = ? WHERE name = ? AND score < ?;");
         statement.setInt(1, player.getScore());
         statement.setString(2, player.getName());
+        statement.setInt(3, player.getScore());
         statement.executeUpdate();
         statement.close();
         connection.close();
@@ -86,7 +87,6 @@ public class PlayerDao implements Dao<Player, String> {
             System.out.println(e);
         }
         return list;
-        
     }
 
     /**
@@ -113,7 +113,6 @@ public class PlayerDao implements Dao<Player, String> {
             connection.close();
             return true;
         }
-        
     }
 
     /**
@@ -128,10 +127,4 @@ public class PlayerDao implements Dao<Player, String> {
         statement.close();
         connection.close();
     }
-    
-    
-    
-
-    
-    
 }

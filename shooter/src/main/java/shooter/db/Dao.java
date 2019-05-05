@@ -8,6 +8,7 @@ package shooter.db;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import shooter.logic.Player;
 
 /**
  *
@@ -29,6 +30,8 @@ public interface Dao<T, K> {
      * @param object
      * @throws SQLException
      */
+    
+    
     void updateBestScore(T object) throws SQLException;
 
     /**
