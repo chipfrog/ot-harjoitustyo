@@ -24,7 +24,7 @@ Käyttöliittymä tulee koostumaan ainakin kolmesta ruudusta. Alla esimerkki:
 - Pelin kulku 
   - hirviöitä ilmestyy satunnaisesti eri puolille kenttää tietty määrä
   - taso läpäistään, jos kaikki hirviöt tapetaan
-  - pisteitä saa hirviöitä ampulalla. Kanoista saa 5 pistettä ja zombeista 10
+  - pisteitä saa hirviöitä ampumalla. Kanoista saa 5 pistettä ja zombeista 10
 
 - pelihahmon toiminnot
   - hahmo voi liikkua tasolla eri suuntiin W, A, S, D -näppäimillä.
