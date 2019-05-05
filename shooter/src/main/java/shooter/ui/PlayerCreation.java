@@ -21,7 +21,7 @@ import shooter.logic.Player;
  *
  * @author jajuuso
  */
-public class PlayerCreation extends SceneSwitcher{
+public class PlayerCreation extends SceneSwitcher {
     
     public  PlayerCreation() {
         
@@ -29,11 +29,9 @@ public class PlayerCreation extends SceneSwitcher{
     public Scene openPlayerCreation(Stage stage) {
         HBox hbox = new HBox();
         VBox vbox = new VBox();
-        
         Label label = new Label("Name: ");
         TextField nameField = new TextField();
         hbox.getChildren().addAll(label, nameField);
-        
         Button startButton = new Button("Start!");
         Label errorMessage = new Label();
         vbox.getChildren().addAll(hbox, startButton, errorMessage);
@@ -41,12 +39,10 @@ public class PlayerCreation extends SceneSwitcher{
         vbox.setPrefSize(600, 400);
         vbox.setAlignment(Pos.TOP_LEFT);
         vbox.setPadding(new Insets(20));
-        
         Scene scene = new Scene(vbox);
         stage.setScene(scene);
         stage.show();
-        
-        startButton.setOnAction(event ->{
+        startButton.setOnAction(event -> {
             if (nameField.getText().isEmpty() || nameField.getText().length() < 4 || nameField.getText().length() > 15) {
                 errorMessage.setText("You need to enter a name for the player! \n The name must be at least 4 characters long \n and not over 15 characters.");
             } else {

@@ -22,10 +22,10 @@ import shooter.logic.Player;
  *
  * @author jajuuso
  */
-public class Leaderboard extends SceneSwitcher{
+public class Leaderboard extends SceneSwitcher {
     Stage stage;
     
-    public Leaderboard (Stage stage) {
+    public Leaderboard(Stage stage) {
         this.stage = stage;
     }
     public Scene openLeaderboard() {

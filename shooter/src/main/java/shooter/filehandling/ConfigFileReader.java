@@ -47,7 +47,7 @@ public class ConfigFileReader {
      * @return
      */
     public static int getInt(String property) {
-        try{
+        try {
             Properties prop = new Properties();
             InputStream input = new FileInputStream("config.properties");
             prop.load(input);

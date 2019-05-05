@@ -18,7 +18,7 @@ import javafx.stage.Stage;
  *
  * @author jajuuso
  */
-public class MainMenu extends Application{
+public class MainMenu extends Application {
     SceneSwitcher sceneSwitcher;
 
     public MainMenu() {
@@ -32,16 +32,13 @@ public class MainMenu extends Application{
         Button gameButton = new Button("New Game");
         Button leaderboard = new Button("Leaderboard");
         Button exitButton = new Button("Exit");
-        
         box.getChildren().addAll(title, gameButton, leaderboard, exitButton);
         box.setPrefSize(600, 400);
         box.setAlignment(Pos.CENTER);
         box.setSpacing(20);
-        
         Scene scene = new Scene(box);
         stage.setScene(scene);
         stage.show();
-        
         gameButton.setOnAction(event -> {
             sceneSwitcher.newGame(stage);
         });
@@ -52,7 +49,7 @@ public class MainMenu extends Application{
             stage.close();
         });
     }
-    public static void main(String[] args) {
+    public  static void main(String[] args) {
         launch(args);
     }
 }

@@ -25,7 +25,7 @@ import shooter.logic.Player;
  *
  * @author jajuuso
  */
-public class GameWindow extends SceneSwitcher{
+public class GameWindow extends SceneSwitcher {
     int width;
     int height;
     Player player;
@@ -57,12 +57,12 @@ public class GameWindow extends SceneSwitcher{
             boolean playerExists = false;
             try {
                 playerExists = playerDao.contains(player);
-            } catch (Exception e){
+            } catch (Exception e) {
             }
             if (!playerExists) {
                 try {
-                  playerDao.addPlayer(player);  
-                } catch (Exception e){
+                    playerDao.addPlayer(player);  
+                } catch (Exception e) {
                 }
             } else {
                 try {
@@ -116,10 +116,11 @@ public class GameWindow extends SceneSwitcher{
                     }
                 }
             }
-        };timer.start();
+        };
+        timer.start();
         return scene;
     }
-    private void winningOptions (Label label, Button next, Button back, Scene scene, Pane pane) {
+    private void winningOptions(Label label, Button next, Button back, Scene scene, Pane pane) {
         label.relocate(scene.getWidth() / 3, scene.getHeight() / 3);
         label.setText("You survived!");
         VBox vbox = new VBox(label, next, back);
@@ -128,7 +129,7 @@ public class GameWindow extends SceneSwitcher{
         vbox.setLayoutY(scene.getHeight() / 3);
         pane.getChildren().add(vbox);
     }
-    private void gameOverOptions (Label label, Button back, Scene scene, Pane pane) {
+    private void gameOverOptions(Label label, Button back, Scene scene, Pane pane) {
         label.relocate(scene.getWidth() / 3, scene.getHeight() / 3);
         label.setText("Game over!");
         VBox vbox = new VBox(label, back);
