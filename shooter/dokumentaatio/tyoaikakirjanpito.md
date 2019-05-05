@@ -18,4 +18,5 @@
 |26.4.  | 5     | Koodin siistimistä, turhien luokkien karsimista, testien kehittämistä |
 |2.5.   | 3     | Testikattavuuden kasvattamista |
 |3.5.   | 4     | Turhien luokkien poisto, koodin siistiminen, JavaDocien kirjoittelu |
-|Yht.   | 56    | |
+|5.5.   | 4     | Testejä tietokantaa varten, viimeistelyä |
+|Yht.   | 60    | |
