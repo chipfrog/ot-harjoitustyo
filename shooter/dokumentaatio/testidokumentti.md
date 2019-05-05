@@ -6,12 +6,11 @@ väliaikaisen testitietokannan avulla.
 ## Yksikkötestaus
 
 Miltei jokaiselle pelilogiikkaa ja peliobjekteja käsittelevälle luokalle on luotu oma testiluokka, jossa metodien toimivuutta
-on testattu. Testeissä on pyritty siihen, että metodit eivät tuottaisi virheellisiä tuloksia missään tilanteissa. Erityisesti on keskitytty
-keskitytty pelin toiminnan aikaisiin tilanteisiin, kuten esim. siihen, että peli osaa pitää kirjaa elossa olevista peliobjekteista ja 
+on testattu. Testeissä on pyritty siihen, että metodit eivät tuottaisi virheellisiä tuloksia missään tilanteissa. Erityisesti on keskitytty pelin toiminnan aikaisiin tilanteisiin, kuten esim. siihen, että peli osaa pitää kirjaa elossa olevista peliobjekteista ja 
 poistaa ruudulta oikeat objektit tarvittaessa. 
 
 ## Tietokannan testaus
-Tietokantaa on testattu luomalla testauksen yhteydessä väliaikainen testitietokanta, johon lisätään tietoa ja jonka tietoa muokataan PlayerDao:n metodeilla. 
+Tietokantaa on testattu luomalla testauksen yhteydessä väliaikainen testitietokanta, johon lisätään tietoa ja, jonka tietoa muokataan PlayerDao:n metodeilla. 
 
 ## Testauskattavuus 
 
