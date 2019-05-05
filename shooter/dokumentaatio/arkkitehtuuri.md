@@ -1,7 +1,5 @@
 # Arkkitehtuuri
 
-## Rakenne
-
 ## Käyttöliittymä
 
 Käyttöliittymä koostuu neljästä näkymästä:
@@ -35,9 +33,12 @@ Peliasetusten konfigurointiin käytetään luokaa _ConfigFileReader_, joka lukee
 ### Luokkakaavio
 <img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/kaavio.png">
 
-### Sekvenssikaavio
+### Sekvenssikaavioita
 <img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/bulletPath.png">
 Kuvassa tilanne, jossa pelaajan ammus osuu viholliseen ja antaa pelaajalle pisteen.
+
+<img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/leaderboardReset.png">
+Päävalikosta siirtyminen leaderboardiin, sen tyhjennys ja paluu päävalikkoon.
 
 ## Ohjelman rakenteen ongelmia
 
