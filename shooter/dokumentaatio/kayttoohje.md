@@ -1,4 +1,5 @@
 # Käyttöohje
+Lataa tiedosto [Shooter.jar](https://github.com/chipfrog/ot-harjoitustyo/releases/tag/viikko7)
 ## Konfigurointi
 Ohjelma vaatii toimiakseen, että käynnistyshakemistossa on tiedosto _config.properties_. Tiedostossa määritellään mm. näytön koko (leveys ja pituus pikseleinä), käytettävän tietokannan nimi, sekä vihollisten määrään liittyvät luvut. Luo tiedosto _config.properties_ ja kopioi siihen seuraava: 
 ```
