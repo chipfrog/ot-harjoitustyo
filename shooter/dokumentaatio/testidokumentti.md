@@ -15,7 +15,7 @@ poistaa ruudulta oikeat objektit tarvittaessa.
 Testauksen rivikattavuus on 51% ja haarautumiskattavuus 44%
 
 <img src="https://github.com/chipfrog/ot-harjoitustyo/blob/master/shooter/dokumentaatio/kuvat/testikattavuus.png">
-Tietokannan ja Dao:n automatisoitu puuttuu kokonaan, mutta tietokannan toimivuutta on testattu manuaalisesti. 
+Tietokannan ja Dao:n automatisoitu testaus puuttuu kokonaan, mutta tietokannan toimivuutta on testattu manuaalisesti. 
 
 ## Järjestelmätestaus
 
