@@ -7,7 +7,7 @@ väliaikaisen testitietokannan avulla.
 
 Miltei jokaiselle pelilogiikkaa ja peliobjekteja käsittelevälle luokalle on luotu oma testiluokka, jossa metodien toimivuutta
 on testattu. Testeissä on pyritty siihen, että metodit eivät tuottaisi virheellisiä tuloksia missään tilanteissa. Erityisesti on keskitytty pelin toiminnan aikaisiin tilanteisiin, kuten esim. siihen, että peli osaa pitää kirjaa elossa olevista peliobjekteista ja 
-poistaa ruudulta oikeat objektit tarvittaessa. 
+poistaa ruudulta oikeat objektit tarvittaessa. Monet luokat vaativat JavaFx:n käyttöä, joten näiden testaamista varten käytettiin TestFx frameworkia. 
 
 ## Tietokannan testaus
 Tietokantaa on testattu luomalla testauksen yhteydessä väliaikainen testitietokanta, johon lisätään tietoa ja, jonka tietoa muokataan PlayerDao:n metodeilla. 
